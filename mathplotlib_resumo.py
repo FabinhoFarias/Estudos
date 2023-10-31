@@ -104,14 +104,11 @@ def grafico_com_introducao_de_legendas_em_pontos_especificos():
     plt.show()
 
 
-grafico_com_introducao_de_legendas_em_pontos_especificos()
-
-
 
 #Para adicionar limites aos eixos dos gráfcos de forma personalizada, é usada a função "xlim(limite inicial, limite final)" para x e "ylim(limite inicial, limite final)" para y 
 
 
-def grafico4():
+def grafico_com_eixos_limitados():
     x = np.linspace(0, 21, 100) #vai usar um intervalo de 0 a 21 com 100 pontos
     a = np.linspace(0, 21) #vai usar um intervalo de 0 a 21 com 100 pontos
 
@@ -140,7 +137,7 @@ def grafico4():
 # ""xminimo" = 0, "xmáximo" = 6 e "yminimo" = 0,"ymáximo" = 6"
 
 
-def grafico5():
+def grafico_em_escala():
     xmin = 0
     ymin = 0
     xmax = 21
