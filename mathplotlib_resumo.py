@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+
 #Para fazer um gráfico simples, usamos a função "plot". Ela recebe um número arbitrário de argumentos. O mais comum é usá-la da seguinte forma: plt.plot(x, y, formato)
 
 #Aqui, x é uma sequência de COORDENADAS HORIZONTAIS: pode ser uma tupla, uma lista ou um array unidimensional. Analogamente, y é uma sequência de COORDENADAS VERTICAIS. (As sequências devem ter o mesmo tamanho)
@@ -14,7 +15,7 @@ import numpy as np
 # y = x²
 # y = x³
 
-def gráfico1():
+def primeiro_gráfico():
     #O primeiro passo é gerar os valores de x que serão usados; aqui, usamos a função "linspace" do numpy. Em seguida graficamos as funções com a função plot e executamos o comando plt.show() para mostrar o gráfico na tela:
     x = np.linspace(0, 2, 21) # 21 pontos no intervalo [0, 2]
     plt.plot(x, x)            # função y = x
@@ -25,11 +26,11 @@ def gráfico1():
 
     plt.show() #Comando necessário para poder printar o gráfico
 
-# -----------------------------------FORMATO DA CURVA--------------------------------------------------------
+
+# ---------------------------------------------------FORMATO DA CURVA-------------------------------------------------------------------------------------------------------------------------------
 
 
-
-def grafico2():
+def gráfico_cores_formadoDeCurva():
     x = np.linspace(0, 2, 21)
     plt.plot(x, x, 'b--')   # linha azul (b) 
                             # tracejada (--)
@@ -42,7 +43,7 @@ def grafico2():
     plt.show()
 
 
-#------------------------------------DETALHES-----------------------------------------------------------------------------------------------------------
+#------------------------------------DETALHES----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # LEGENDAS (parâmetro label, função legend) para cada curva
@@ -50,7 +51,7 @@ def grafico2():
 # DESCRIÇÕES nos eixos coordenados (xlabel e ylabel) 
 # GRADE para facilitar a leitura do gráfico (grid):
 
-def grafico3():
+def grafico_com_introducao_de_legendas_nas_curvas_e_eixos():
     x = np.linspace(0, 2, 21)
     plt.plot(x, x, 'b--', label='linear')        # linear é a legenda da curva
 
@@ -70,7 +71,45 @@ def grafico3():
 
     plt.show()
 
+#--------------------------------------Legendas em pontos específicos do gráfico----------------------------------------------------------------------------------------------------------
+
+def grafico_com_introducao_de_legendas_em_pontos_especificos():
+    # Dados para o gráfico
+    x = [1, 2, 3, 4, 5]
+    y = [2, 4, 1, 3, 5]
+
+    # Crie um gráfico de dispersão
+    plt.scatter(x, y)
+
+    # Adicione anotações em pontos específicos do gráfico com a função "annotate". 
+
+    #COMO USAR: annotate(s, xy, xytext=None, xycoords='data', textcoords='data', arrowprops=None, **kwargs)
+    """
+    s: É a string de texto que você deseja anotar no gráfico. 
+    xy: É uma tupla representando as coordenadas do ponto que você está anotando. Por exemplo, xy=(x, y) especifica as coordenadas do ponto no gráfico.
+    xytext: (Opcional) É uma tupla que representa a posição onde o texto da anotação deve ser colocado. Se não for especificado, o texto será colocado nas coordenadas xy.
+    xycoords: (Opcional) É a coordenada do sistema de referência para xy. O valor padrão é 'data', que significa que xy se refere às coordenadas de dados do gráfico. Você pode usar outras opções, como 'axes fraction', 'figure points', entre outras, dependendo do sistema de coordenadas desejado.
+    textcoords: (Opcional) É a coordenada do sistema de referência para xytext. O valor padrão é 'data', que significa que xytext se refere às coordenadas de dados do gráfico. Você pode usar outras opções, como 'axes fraction', 'figure points', entre outras, dependendo do sistema de coordenadas desejado.
+    arrowprops: (Opcional) É um dicionário com propriedades da seta que conecta o ponto anotado ao texto da anotação. Você pode personalizar a aparência da seta, como estilo, cor, largura, entre outros, usando este dicionário.
+    **kwargs: (Opcional) Outros argumentos de palavras-chave podem ser usados para personalizar a aparência do texto da anotação, como tamanho da fonte, cor do texto, entre outros.
+    """
+
+    plt.annotate('Ponto 1', (1, 2), textcoords='offset points', xytext=(10,10), arrowprops=dict(arrowstyle='->'))
+    plt.annotate('Ponto 2', (2, 4), textcoords='offset points', xytext=(10,10), arrowprops=dict(arrowstyle='->'))
+    plt.annotate('Ponto 3', (3, 1), textcoords='offset points', xytext=(10,10), arrowprops=dict(arrowstyle='->'))
+    plt.annotate('Ponto 4', (4, 3), textcoords='offset points', xytext=(10,10), arrowprops=dict(arrowstyle='->'))
+    plt.annotate('Ponto 5', (5, 5), textcoords='offset points', xytext=(10,10), arrowprops=dict(arrowstyle='->'))
+
+    # Exibir o gráfico
+    plt.show()
+
+
+grafico_com_introducao_de_legendas_em_pontos_especificos()
+
+
+
 #Para adicionar limites aos eixos dos gráfcos de forma personalizada, é usada a função "xlim(limite inicial, limite final)" para x e "ylim(limite inicial, limite final)" para y 
+
 
 def grafico4():
     x = np.linspace(0, 21, 100) #vai usar um intervalo de 0 a 21 com 100 pontos
@@ -93,12 +132,13 @@ def grafico4():
     plt.show()
 
 
-# ----------------------------------------PARA DEIXAR OS EIXOS EM ESCALA É USADA A FUNÇÃO "AXIS" -------------------------------------------------------------
+# ---------------------------------------------------PARA DEIXAR OS EIXOS EM ESCALA É USADA A FUNÇÃO "AXIS" ------------------------------------------------------------------------------
 
 # Essa função vai receber os parametros "xminimo","xmáximo" e "yminimo","ymáximo"
 # Configura os limites dos eixos x e y
 # exemplo : plt.axis([0, 6, 0, 6])
 # ""xminimo" = 0, "xmáximo" = 6 e "yminimo" = 0,"ymáximo" = 6"
+
 
 def grafico5():
     xmin = 0
@@ -128,9 +168,7 @@ def grafico5():
     plt.show()
 
 
-#-------------------------------------------COLOCANDO MAIS DE UM GRÁFICO EM UMA FIGURA--------------------------------------------------------
+#-----------------------------------------------------------------COLOCANDO MAIS DE UM GRÁFICO EM UMA FIGURA-------------------------------------------------------------------------------------
 
-Para usar mais de um gráfico em uma mesma figura é usado a função "figure". Ela vai pedir alguns parametros 
+#Para usar mais de um gráfico em uma mesma figura é usado a função "figure". Ela vai pedir alguns parametros 
 
-
-def
