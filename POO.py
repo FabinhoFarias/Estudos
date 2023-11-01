@@ -1,4 +1,3 @@
-
 # --------------------------------------------------POO com python-------------------------------------------------------------------------
 
 #Objeto = Classe
@@ -40,23 +39,200 @@ class Televisao: #classe televisão criada
 
 #Quando a classe for atribuida a uma variável, ela vai iniciar com todos os atributos listados.
 
-televisao_sala = Televisao()
-
-# print(televisao_sala.marca) #saida será: LG
-
-
-
-
-
-
-
-
-
-
-
+televisao_sala = Televisao()   #instancia do objeto Televisão (sala)
+televisao_quarto = Televisao() #instancia do objeto Televisão (quarto)
+# "televisao_sala" e "Televisao_quarto" herdam as caracteristicas da classe televisão (Herança) 
+#  print(televisao_sala.marca) #saida será: LG
 
 
 #-------------------------------------------------MODIFICANDO ATRIBUTOS INICIAIS EM UMA CLASSE------------------------------------------------------------------------------------
+
+
+# Quando o comando "OBJETO.ATRIBUTO = ALGUMA_COISA" é execultado, o objeto que tem o "ATRIBUTO" é modificado para "ALGUMA_COISA"
+# Ex:
+
+televisao_sala.marca = 'Dell' # Objeto "televisao_sala" que tem o atributo "marca" foi modificado para "Dell"
+print(televisao_sala.marca)   # Saída será "Dell"
+
+
+#--------------------------------------------------------------------------SELF---------------------------------------------------------------------------------------------------------------
+
+#self é uma convenção usada para se referir ao próprio objeto de uma classe. Ele permite que outros métodos dentro da classe manipulem dados específicos. 
+#Quando o self é atribuido a uma def, ela vai mudar dados dentro da' classe. Para inserir mais dados dentro da def é necessário adicionar mais parâmetros.
+
+
+class Televisao: #classe televisão criada
+    def __init__(self): #iniciando com a função __init__
+        self.marca = 'LG'    #atributo marca recebe "LG"
+        self.tamanho = 55    #atributo marca recebe "55"
+        self.cor = 'Preta'   #atributo marca recebe "Preta"
+        self.canal = 'Globo' #atributo marca recebe "Globo"
+
+    def mudar_canal(self, novo_canal): # Essa def é responsável por criar a funcionalidade na TV de mudar o canal sem usar o comando "televisao_sala.canal = 'Dell'"
+        self.canal = novo_canal        # Esse self vai referenciar ao atributo que está na função "__init__"
+
+    def desligar(self):#Essa def poderia ser colocada no "__init__", mas é introduzida como uma funcionalidade específica.
+        print("A TV está desligada.")
+        self.estado = "desligada"      # Adicionando um novo atributo "estado" específico para a instância
+
+# Criando uma instância da classe Televisao
+minha_tv = Televisao()
+
+# Acessando atributos da instância
+print(f"Marca da TV: {minha_tv.marca}")
+print(f"Tamanho da TV: {minha_tv.tamanho} polegadas")
+print(f"Cor da TV: {minha_tv.cor}")
+print(f"Canal atual: {minha_tv.canal}")
+
+# Mudando o canal com o método mudar_canal
+minha_tv.mudar_canal("CNN") #Quando a função é chamada, é como se o self fosse um parâmetro a menos e só é necessário colocar o novo canal.
+print(f"Novo canal atual: {minha_tv.canal}")
+
+# Desligando a TV com o método desligar
+minha_tv.desligar()
+
+# Tentando acessar o atributo "estado" após desligar
+# Isso resultará em um erro, pois o atributo "estado" não foi definido no método __init__
+# e é específico para a instância
+print(f"Estado da TV: {minha_tv.estado}")
+#Se você deseja acessar o atributo "estado" em todas as instâncias, mesmo antes de chamar o método desligar, você deve definir esse atributo no método __init__ com um valor padrão, 
+#conforme mostrado no exemplo anterior. Dessa forma, o atributo "estado" estará presente em todas as instâncias da classe desde o início.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
