@@ -273,7 +273,36 @@ def funcao_numpy_where():
         numpy.random.choice(): Gera amostras aleatórias a partir de um array ou sequência.
         Essas funções são apenas um subconjunto das muitas disponíveis no módulo numpy.random. Elas podem ser usadas para criar dados de teste, simulações e outras tarefas que envolvem números aleatórios."""
 
+"""21. **numpy.eye()**: Cria uma matriz identidade com a diagonal principal de uns."""
+def funcao_numpy_eye():
+    # Crie uma matriz identidade 3x3
+    matriz_identidade = numpy.eye(3) # Esse '3' pode ser n. Quando for n será uma matriz n por n
+    
+    print("Matriz Identidade 3x3:")
+    print(matriz_identidade)
+#funcao_numpy_eye()
 
+"""22. Atributo shape em NumPy: O atributo shape é usado para descobrir a quantidade de elementos em cada dimensão de um vetor ou matriz em NumPy. Ele retorna uma tupla que representa o tamanho de cada dimensão."""
+def funcao_numpy_shape():
+    # Exemplo com uma matriz 2x3
+    matriz = numpy.array([[1, 2, 3], [4, 5, 6]])
+    dimensoes = matriz.shape
+    print("Matriz:")
+    print(matriz)
+    print("Dimensões da matriz:")
+    print(dimensoes)
+#funcao_numpy_shape()
+
+"""23. Atributo shape com np.arange(): O atributo shape pode ser usado com a função np.arange() para descobrir a quantidade de elementos em um vetor NumPy."""
+def funcao_numpy_shape_com_arange():
+    # Exemplo com np.arange()
+    vetor = numpy.arange(10)
+    dimensoes_vetor = vetor.shape
+    print("Vetor:")
+    print(vetor)
+    print("Dimensões do vetor:")
+    print(dimensoes_vetor) # Significa que ele vai ter 10 elementos ao longo da ultima dimensão
+#funcao_numpy_shape_com_arange()
 
 
 
