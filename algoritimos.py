@@ -33,4 +33,52 @@ def vetor_empty():
     print(f'Vetor unidimensional:\n {vetor_unidimensional}') # a sáida foi: [ 1747752668 -1627480792 -1602070744 -1923164309] (é lixo de memória)
     vetor_bidimensional = np.empty((2, 2), int)
     print(f'Vetor bidimensional:\n {vetor_bidimensional}')
-vetor_empty()
+# vetor_empty()
+
+
+
+#-------------------------------------ATIVIDADES DO PDF---------------------------------------
+
+"""Q1 - Construa um programa que preenche um vetor de inteiros de 100 números, colocando 0 nas posições pares e 1 nas ímpares."""
+def questao_1():
+    contador = 0
+    vetor = np.ones((1, 100))
+    for posicao in vetor[0]:
+        if contador % 2 == 0:
+            vetor[0][contador] = 0
+        contador +=1
+    print(vetor)
+"""Q2 - Construa um programa que lê, soma e imprime o resultado da soma de um vetor de inteiros de 10 posições."""
+def questao_2():
+    vetor = np.linspace(0, 100, num=10)
+    soma = np.sum(vetor)
+    print(soma)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------------------------------------ANÁLISE DE ALGORITIMOS---------------------------------------------------------------------------------------------
