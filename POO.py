@@ -1,4 +1,9 @@
-# --------------------------------------------------POO com python-------------------------------------------------------------------------
+#------------------------------------------------POO com python-------------------------------------------------------------------------
+
+# Em Python toda variável aponta para um objeto. 
+# Podem ser de 2 tipos: PRIMITIVOS: São variáveis, floots, int...
+#                       COMPOSTOS: Listas, dicionários, classes...
+
 
 #Objeto = Classe
 
@@ -9,7 +14,7 @@
 #Ex: O objeto "Pessoa" consegue fala, andar, pular, dormir... Essas ações seriam os métodos dentro da classe. 
 #    "Pessoa" também tem idade, cpf, nome, aniversário... Esses seriam os atributos da classe "Pessoa". Atribultos também podem ser variáveis dentro do código.
 
-#------------------------------------------------VANTAGENS-----------------------------------------------------------------------------------------
+#------------------------------------------------VANTAGENS----------------------------------------------------------------------------------------------------------------
 
 """
 Encapsulamento: Protege o código de mudanças indesejadas. 
@@ -26,7 +31,9 @@ Polimorfismo: Uma mesma classe pode conter outras classes dentro dela.
 
 """
 Primeiro passo é nomear a classe.
-Segundo passo é inicializar a classe com a função def __init__(self):
+Segundo passo é inicializar a classe com a função def __init__(self): #Este método de inicialização é também chamado de construtor.
+                                                                      Ele é chamado automaticamente sempre que um objeto da
+                                                                      classe é criado/instanciado.#
 Terceiro passo é definir os atributos que essa classe vai ter quando iniciar.
 """ 
 
@@ -39,23 +46,38 @@ class Televisao: #classe televisão criada
 
 #Quando a classe for atribuida a uma variável, ela vai iniciar com todos os atributos listados.
 
-televisao_sala = Televisao()   #instancia do objeto Televisão (sala)
-televisao_quarto = Televisao() #instancia do objeto Televisão (quarto)
+televisao_sala = Televisao()   # instancia do objeto Televisão (sala)
+televisao_quarto = Televisao() # instancia do objeto Televisão (quarto)
+                               # Cada objeto instanciado é diferente do outro.
 # "televisao_sala" e "Televisao_quarto" herdam as caracteristicas da classe televisão (Herança) 
 #  print(televisao_sala.marca) #saida será: LG
 
 
-#-------------------------------------------------MODIFICANDO ATRIBUTOS INICIAIS EM UMA CLASSE------------------------------------------------------------------------------------
+#------------------------------------------------MODIFICANDO ATRIBUTOS INICIAIS EM UMA CLASSE------------------------------------------------------------------------------------
 
 
 # Quando o comando "OBJETO.ATRIBUTO = ALGUMA_COISA" é execultado, o objeto que tem o "ATRIBUTO" é modificado para "ALGUMA_COISA"
 # Ex:
-
 televisao_sala.marca = 'Dell' # Objeto "televisao_sala" que tem o atributo "marca" foi modificado para "Dell"
 print(televisao_sala.marca)   # Saída será "Dell"
 
+"""
+Nosso construtor também pode inicializar as variáveis da classe com valores fornecidos no momento da criação do objeto:
+"""
+class Pessoa:
+    def __init__(self, initNome, initIdade, initEndereco): # coloca-se o init + nome do atributo com inicial maiúscula. Ex: "initAtributo"
+        self.nome = initNome
+        self.idade = initIdade
+        self.endereco = initEndereco        
 
-#--------------------------------------------------------------------------SELF---------------------------------------------------------------------------------------------------------------
+p1 = Pessoa("João Pedro da Silva", 20, "Rua Sem Nome") # p1 iniciará com nom = "João Pedro da Silva", idade = 20 e endereco = "Rua Sem Nome"
+p2 = Pessoa("Maria Xuxa", 47, "Rua da Nave Espacial")  # p2 iniciará com nom = "Maria Xuxa", idade = 47 e endereco = "Rua da Nave Espacial"
+
+print(p1.nome) #saida = João Pedro da Silva
+print(p2.nome) #saida = Maria Xuxa
+
+
+#------------------------------------------------SELF---------------------------------------------------------------------------------------------------------------
 
 #self é uma convenção usada para se referir ao próprio objeto de uma classe. Ele permite que outros métodos dentro da classe manipulem dados específicos. 
 #Quando o self é atribuido a uma def, ela vai mudar dados dentro da' classe. Para inserir mais dados dentro da def é necessário adicionar mais parâmetros.
@@ -100,139 +122,38 @@ print(f"Estado da TV: {minha_tv.estado}")
 
 
 
+#------------------------------------------------EM_RESUMO---------------------------------------------------------------------------------------------------------------
 
 
 
+# Atributo: um campo de informação dentro de uma classe (por exemplo, endereco, idade, nome na classe Pessoa)
+class Pessoa:
+    # Classe: um tipo composto definido pelo usuário.
+    def __init__(self, initNome, initIdade, initEndereco):
+        # Construtor: inicializa um objeto de sua classe.
+        # Instancia um objeto de sua classe. Cria um objeto de sua classe.
+        self.nome = initNome
+        self.idade = initIdade
+        self.endereco = initEndereco
 
+# Instância: um objeto cujo tipo é uma classe. Instância é sinônimo de objeto.
 
+# Exemplo de uso:
+# Criando instâncias (objetos) da classe Pessoa
+p1 = Pessoa("João Pedro da Silva", 20, "Rua Sem Nome")
+p2 = Pessoa("Maria Xuxa", 47, "Rua da Nave Espacial")
+# Acessando os atributos das instâncias
+print(p1.nome)
+print(p2.nome)
 
 
 
 
+#------------------------------------------------BOAS_PRÁTICAS---------------------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# PROTEGER ATRIBUTOS: Evite que os atributos sejam acessados (lidos e escritos) diretamente por quem está FORA de sua classe.
+# Isso permite que se tenha controle do protocolo de mudança de valores de seus atributos
 
 
 
@@ -293,3 +214,4 @@ class Aluno:
         nota2 = 
         nota3 = 
         """
+
