@@ -67,45 +67,217 @@ def funcao_numpy_sum():
     # Calcula a soma de todos os elementos no array
     soma = numpy.sum(arr)
     print("Soma dos elementos no array:", soma)
-funcao_numpy_sum()
-# A complexidade dessa função é O(n) (n=tamanho da entrada)
-
+#funcao_numpy_sum()
+# A complexidade dessa função é O(n) (n=tamanho da entrada)  
 
 """9. **numpy.mean()**:     Calcula a média dos elementos de um array."""
-
-
-
-
+def funcao_numpy_mean():
+    # Cria um array unidimensional com alguns valores
+    array = numpy.array([1, 2, 3, 4, 5])
+    #OBSERVAÇÃO: A função também é flexivel para matrizes nxn
+    # Calcula a média dos elementos no array
+    media = numpy.mean(array)
+    print("Média dos elementos no array:", media)
+#funcao_numpy_mean()
 
 """10. **numpy.min()** e **numpy.max()**: Encontram o valor mínimo e máximo em um array, respectivamente."""
+def funcao_numpy_min():
+    # Cria um array unidimensional com alguns valores
+    arr = numpy.array([3, 1, 5, 2, 4])
+    # Encontra o valor mínimo no array
+    minimo = numpy.min(arr)
+    print("Valor mínimo no array:", minimo)
+#funcao_numpy_min()
+#   AMBAS FUNCIONAM PARA MATRIZES 
+def funcao_numpy_max():
+    # Cria um array unidimensional com alguns valores
+    arr = numpy.array([3, 1, 5, 2, 4])
+    # Encontra o valor máximo no array
+    maximo = numpy.max(arr)
+    print("Valor máximo no array:", maximo)
+#funcao_numpy_max()
+
 """11. **numpy.std()**:     Calcula o desvio padrão dos elementos de um array."""
+def funcao_numpy_std(): # TAMBÉM FUNCIONA PARA MATRIZES E VETORES
+    # Cria um array unidimensional com alguns valores
+    arr = numpy.array([1, 2, 3, 4, 5])
+    # Calcula o desvio padrão dos elementos no array
+    desvio_padrao = numpy.std(arr)
+    print("Desvio padrão dos elementos no array:", desvio_padrao)
+#funcao_numpy_std()
+
 """12. **numpy.var()**:     Calcula a variância dos elementos de um array."""
+def funcao_numpy_var(): # TAMBÉM FUNCIONA PARA MATRIZES E VETORES
+    # Cria um array unidimensional com alguns valores
+    arr = numpy.array([1, 2, 3, 4, 5])
+    # Calcula a variância dos elementos no array
+    variancia = numpy.var(arr)
+    print("Variância dos elementos no array:", variancia)
+#funcao_numpy_var()
+
+"""13. **numpy.dot()**:     Realiza o produto escalar entre dois arrays."""
+def funcao_numpy_dot():
+    # Cria dois vetores (arrays unidimensionais)
+    vetor1 = numpy.array([1, 2, 3])
+    vetor2 = numpy.array([4, 5, 6])
+    # Realiza o produto escalar entre os dois vetores
+
+    # Produto Escalar = (1 * 4) + (2 * 5) + (3 * 6) = 4 + 10 + 18 = 32
+
+    produto_escalar = numpy.dot(vetor1, vetor2)
+    print("Produto escalar dos vetores:", produto_escalar)
+#funcao_numpy_dot()
+
+"""14. **numpy.transpose()**: Transpõe um array, trocando linhas por colunas."""
+def funcao_numpy_transpose():
+    # Cria uma matriz 2x3 com alguns valores
+    matriz = numpy.array([[1, 2, 3],
+                          [4, 5, 6]])
+    # Transpõe a matriz (troca as linhas por colunas)
+    matriz_transposta = numpy.transpose(matriz)
+    
+    print("Matriz original:")
+    print(matriz)
+    
+    print("Matriz transposta:")
+    print(matriz_transposta)
+#funcao_numpy_transpose()
+
+"""15. **numpy.concatenate()**: Concatena arrays ao longo de um eixo especificado."""
+def funcao_numpy_concatenate():
+    # Crie duas matrizes 2x3
+    matriz1 = numpy.array([[1, 2, 3],
+                           [4, 5, 6]])
+    matriz2 = numpy.array([[7, 8, 9],
+                           [10, 11, 12]])
+    # Concatene as matrizes ao longo do eixo 1 (colunas)
+    resultado = numpy.concatenate((matriz1, matriz2), axis=1)
+    # IMPORTANTE: consultar os valores de 'axis' diferentes para cada dimensão diferente de matriz
+    print("Matriz 1:")
+    print(matriz1)
+    print("Matriz 2:")
+    print(matriz2)
+    print("Resultado da concatenação ao longo do eixo 1:")
+    print(resultado)
+#funcao_numpy_concatenate()
+
+"""16. **numpy.split()**: Divide um array em subarrays ao longo de um eixo especificado."""
+def funcao_numpy_split():
+    # Crie uma matriz 2x4
+    matriz = numpy.array([[1, 2, 3, 4],
+                    [5, 6, 7, 8]])
+
+    # Use a função split para dividir a matriz em duas submatrizes ao longo do eixo 1 (colunas)
+    submatrizes = numpy.split(matriz, 2, axis=1)
+
+    print("Matriz original:")
+    print(matriz)
+
+    print("Submatriz 1:")
+    print(submatrizes[0])
+
+    print("Submatriz 2:")
+    print(submatrizes[1])
+#funcao_numpy_split()
+
+"""17. **numpy.sort()**: Classifica os elementos de um array."""
+def funcao_numpy_sort():
+    # Crie uma matriz 1x4 não ordenada
+    matriz = numpy.array([3, 1, 4, 2])
+    
+    # Ordene a matriz em ordem crescente (padrão)
+    matriz_ordenada = numpy.sort(matriz)
+    
+    print("Matriz original:")
+    print(matriz)
+    
+    print("Matriz ordenada em ordem crescente:")
+    print(matriz_ordenada)
+
+    # Para ordenar em ordem decrescente, você pode usar o parâmetro 'kind'
+    matriz_decrescente = numpy.sort(matriz, kind='heapsort')
+    
+    print("Matriz ordenada em ordem decrescente:")
+    print(matriz_decrescente)
+
+    # A função 'numpy.sort()' também pode ser usada com matrizes multidimensionais
+    matriz_2d = numpy.array([[3, 1, 4], [2, 6, 5]])
+    
+    # Ordene a matriz bidimensional ao longo do eixo 1 (colunas) em ordem crescente
+    matriz_ordenada_2d = numpy.sort(matriz_2d, axis=1)
+    
+    print("Matriz bidimensional original:")
+    print(matriz_2d)
+    
+    print("Matriz bidimensional ordenada ao longo do eixo 1 em ordem crescente:")
+    print(matriz_ordenada_2d)
+funcao_numpy_sort()
+
+"""18. **numpy.argmax()** e **numpy.argmin()**: Encontram os índices dos valores máximo e mínimo em um array, respectivamente."""
+def funcao_numpy_sort():
+    # Crie uma matriz 1x4 não ordenada
+    matriz = numpy.array([3, 1, 4, 2])
+    
+    # Ordene a matriz em ordem crescente (padrão)
+    matriz_ordenada = numpy.sort(matriz)
+    
+    print("Matriz original:")
+    print(matriz)
+    
+    print("Matriz ordenada em ordem crescente:")
+    print(matriz_ordenada)
+
+    # Para ordenar em ordem decrescente, você pode usar o parâmetro 'kind'
+    matriz_decrescente = numpy.sort(matriz)[::-1]
+    
+    print("Matriz ordenada em ordem decrescente:")
+    print(matriz_decrescente)
+
+    # A função 'numpy.sort()' também pode ser usada com matrizes multidimensionais
+    matriz_2d = numpy.array([[3, 1, 4], [2, 6, 5]])
+    
+    # Ordene a matriz bidimensional ao longo do eixo 1 (colunas) em ordem crescente
+    matriz_ordenada_2d = numpy.sort(matriz_2d, axis=1)
+    
+    print("Matriz bidimensional original:")
+    print(matriz_2d)
+    
+    print("Matriz bidimensional ordenada ao longo do eixo 1 em ordem crescente:")
+    print(matriz_ordenada_2d)# ordena nas colunas
+#funcao_numpy_sort()
+
+"""19. **numpy.where()**: Retorna os índices onde uma condição é verdadeira em um array."""
+def funcao_numpy_where():
+    # Crie um array unidimensional
+    array = numpy.array([1, 2, 3, 4, 5])
+    
+    # Encontre os índices onde os elementos são maiores que 3
+    indices = numpy.where(array > 3)
+    
+    print("Array original:")
+    print(array)
+    
+    print("Índices onde os elementos são maiores que 3:")
+    print(indices)
+#funcao_numpy_where()
+
+"""20. **numpy.random**: Módulo para geração de números aleatórios."""
+""" O módulo numpy.random fornece uma variedade de funções para geração de números aleatórios. É amplamente utilizado em simulações, análise de dados e muitas outras aplicações onde a aleatoriedade é necessária. Aqui estão algumas funções importantes disponíveis no módulo numpy.random:
+        numpy.random.rand(): Gera números aleatórios em uma distribuição uniforme entre 0 e 1.
+        numpy.random.randn(): Gera números aleatórios a partir de uma distribuição normal (gaussiana) com média 0 e desvio padrão 1.
+        numpy.random.randint(): Gera números inteiros aleatórios dentro de um intervalo especificado.
+        numpy.random.uniform(): Gera números aleatórios em uma distribuição uniforme dentro de um intervalo especificado.
+        numpy.random.normal(): Gera números aleatórios a partir de uma distribuição normal com média e desvio padrão especificados.
+        numpy.random.seed(): Define a semente do gerador de números aleatórios, permitindo a reprodução dos mesmos resultados em diferentes execuções.
+        numpy.random.shuffle(): Embaralha os elementos de um array ao longo do primeiro eixo.
+        numpy.random.choice(): Gera amostras aleatórias a partir de um array ou sequência.
+        Essas funções são apenas um subconjunto das muitas disponíveis no módulo numpy.random. Elas podem ser usadas para criar dados de teste, simulações e outras tarefas que envolvem números aleatórios."""
 
 
 
 
-"""
-#def tópico1 ():
-13. **numpy.dot()**:     Realiza o produto escalar entre dois arrays.
-#def tópico1 ():
-14. **numpy.transpose()**: Transpõe um array, trocando linhas por colunas.
-#def tópico1 ():
-15. **numpy.concatenate()**: Concatena arrays ao longo de um eixo especificado.
-#def tópico1 ():
-16. **numpy.split()**: Divide um array em subarrays ao longo de um eixo especificado.
-#def tópico1 ():
-17. **numpy.sort()**: Classifica os elementos de um array.
-#def tópico1 ():
-18. **numpy.argmax()** e **numpy.argmin()**: Encontram os índices dos valores máximo e mínimo em um array, respectivamente.
-#def tópico1 ():
-19. **numpy.where()**: Retorna os índices onde uma condição é verdadeira em um array.
-#def tópico1 ():
-20. **numpy.random**: Módulo para geração de números aleatórios.
-#def tópico1 ():
-Estas são apenas algumas das muitas funções disponíveis no NumPy. Elas são amplamente utilizadas em análise de dados, processamento de sinais, cálculos científicos e muitas outras áreas. O NumPy é uma biblioteca poderosa e amplamente utilizada para trabalhar com arrays multidimensionais em Python.
-"""
 
-
+"""Estas são apenas algumas das muitas funções disponíveis no NumPy. Elas são amplamente utilizadas em análise de dados, processamento de sinais, cálculos científicos e muitas outras áreas. O NumPy é uma biblioteca poderosa e amplamente utilizada para trabalhar com arrays multidimensionais em Python."""
 
 
 #Matrizes são criadas em numpy de forma similar a vetores, porém devem ser informadas as quantidades de dados para cada dimensão
