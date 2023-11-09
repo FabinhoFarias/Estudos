@@ -83,10 +83,26 @@ def questao_4_vetores():
 
 """Q1 - Construa um algoritmo que efetue e apresente o resultado da soma entre duas matrizes 3 x 5. Inicialize a matriz com valores quaisquer e imprima o resultado na tela."""
 def questao_1_matrizes():
-    matriz_1 = np.ones((3 ,5), dtype=int)
-    print(matriz_1)
-questao_1_matrizes()
-
+    contador = 0
+    # CONDIÇÃO: As matrizes devem ser n x k
+    # Dada as matrizes A + B = C, A[linha][coluna] + B[linha][coluna] = C[linha][coluna]
+    matriz_1 = np.ones((3 ,5), dtype=float)
+    dimensoes = matriz_1.shape
+    print(f'Matriz 1: \n{matriz_1}')
+    matriz_2 = np.ones((3 ,5), dtype=int)
+    matriz_reposta = np.empty((dimensoes[0], dimensoes[1]), dtype=float)
+    array_para_append = np.array([])
+    print(f'Matriz 2: \n{matriz_2}\n')
+    #RESOLUÇÃO: faz a soma escalar das linhas da matriz
+    for linha_matriz_1, linha_matriz_2 in zip(matriz_1, matriz_2): # laço com as 2 matrizes
+        for elemento_linha_matriz_1, elemento_linha_matriz_2 in zip(linha_matriz_1, linha_matriz_2):
+            soma_elementos = elemento_linha_matriz_1 + elemento_linha_matriz_2
+            array_para_append = np.append(array_para_append, soma_elementos)
+            print(f'{elemento_linha_matriz_1} + {elemento_linha_matriz_2} = {soma_elementos}')
+        matriz_reposta[contador] = array_para_append
+        array_para_append = np.array([])
+        contador += 1
+    print(matriz_reposta)
 
 """Q2 - Faça um programa que multiplica uma matriz 3 x 3 de inteiros por um escalar k e imprima o resultado na tela. O usuário deve fornecer os valores da matriz e de k."""
 
