@@ -165,7 +165,7 @@ def funcao_numpy_concatenate():
 def funcao_numpy_split():
     # Crie uma matriz 2x4
     matriz = numpy.array([[1, 2, 3, 4],
-                    [5, 6, 7, 8]])
+                          [5, 6, 7, 8]])
 
     # Use a função split para dividir a matriz em duas submatrizes ao longo do eixo 1 (colunas)
     submatrizes = numpy.split(matriz, 2, axis=1)
@@ -303,6 +303,20 @@ def funcao_numpy_shape_com_arange():
     print("Dimensões do vetor:")
     print(dimensoes_vetor) # Significa que ele vai ter 10 elementos ao longo da ultima dimensão
 #funcao_numpy_shape_com_arange()
+
+"""24. Atributo shape com numpy.full(): O atributo shape pode ser usado com a função numpy.full() para determinar as dimensões de uma matriz NumPy preenchida com valores constantes."""
+def funcao_numpy_shape_com_full():
+    # Exemplo com np.full()
+    matriz = numpy.full((3, 4), 7.0)
+    dimensoes_matriz = matriz.shape
+    print("Matriz:")
+    print(matriz)
+    print("Dimensões da matriz:")
+    print(dimensoes_matriz)  # Significa que a matriz terá 3 linhas e 4 colunas.
+#funcao_numpy_shape_com_full()
+
+
+
 
 
 
