@@ -39,8 +39,10 @@ def vetor_empty():
 
 #-------------------------------------ATIVIDADES DO PDF---------------------------------------
 
+# QUESTÕES PARA VETORES
+
 """Q1 - Construa um programa que preenche um vetor de inteiros de 100 números, colocando 0 nas posições pares e 1 nas ímpares."""
-def questao_1():
+def questao_1_vetores():
     contador = 0
     vetor = np.ones((1, 100))
     for posicao in vetor[0]:
@@ -48,30 +50,54 @@ def questao_1():
             vetor[0][contador] = 0
         contador +=1
     print(vetor)
+
 """Q2 - Construa um programa que lê, soma e imprime o resultado da soma de um vetor de inteiros de 10 posições."""
-def questao_2():
-    vetor = np.linspace(0, 100, num=10)
+def questao_2_vetores():
+    vetor = np.linspace(1, 100, num=10, endpoint=True) # Lembrar que o primeiro parâmetro e inclusivo e o segundo é exclusivo!
     soma = np.sum(vetor)
-    print(soma)
+    print(f'Soma: {soma}')
+
+"""Q3 - Construa um programa que multiplique os valores de um vetor de reais de 20 posições pelos valores de um outro vetor de reais de 20 posições. O
+primeiro vetor deve ser inicializado com valores crescentes a partir de 1 e o segundo vetor com valores decrescentes a partir de 20. Os resultados das
+multiplicações devem ser armazenados num terceiro vetor."""
+def questao_3_vetores():
+    vetor_crescente = np.linspace(1, 20, num=20, endpoint=True) # Cria um vetor crescente
+    vetor_decrescente = np.sort(vetor_crescente, kind='heapsort')# A partir do crescente, cria-se o decrescente
+    produto_escalar = np.dot(vetor_crescente, vetor_decrescente)# Faz o PRODUTO ESCALAR dos dois vetores
+    print(produto_escalar)
+
+"""Q4 - Leia um vetor de 16 posições e troque os 8 primeiros valores pelos 8 últimos e vice-versa. Escreva ao final o vetor obtido."""
+def questao_4_vetores():
+    vetor = np.linspace(1, 16, num=16, endpoint=True) # Lembrar que o primeiro parâmetro e inclusivo e o segundo é exclusivo!
+    print(vetor)
+    primeira_metade = vetor[0: int((len(vetor)/2))]#Quebra o vetor na metade
+    segunda_metade = vetor[int((len(vetor)/2)): ]#Quebra o vetor na metade
+    print(primeira_metade)
+    print(segunda_metade)
+    #print((len(vetor)/2))
+    vetor = np.array([])
+    resultado = np.concatenate((segunda_metade, primeira_metade), axis=0)
+    print(resultado)
+
+# QUESTÕES PARA MATRIZES
+
+"""Q1 - Construa um algoritmo que efetue e apresente o resultado da soma entre duas matrizes 3 x 5. Inicialize a matriz com valores quaisquer e imprima o resultado na tela."""
+def questao_1_matrizes():
+    matriz_1 = np.ones((3 ,5), dtype=int)
+    print(matriz_1)
+questao_1_matrizes()
+
+
+"""Q2 - Faça um programa que multiplica uma matriz 3 x 3 de inteiros por um escalar k e imprima o resultado na tela. O usuário deve fornecer os valores da matriz e de k."""
 
 
 
+"""Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) ou uma mensagem de “não 
+encontrado”."""
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""Q4 - Leia um vetor de 16 posições e troque os 8 primeiros valores pelos 8 últimos e vice-versa. Escreva ao final o vetor obtido."""
 
 
 
