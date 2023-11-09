@@ -62,7 +62,7 @@ def funcao_numpy_reshape():
 
 """8. **numpy.sum()**:      Calcula a soma dos elementos de um array."""
 def funcao_numpy_sum():
-    # Cria um array unidimensional com alguns valores
+    # Cria um array unidimensional com alguns valoresin
     arr = numpy.array([1, 2, 3, 4, 5])
     # Calcula a soma de todos os elementos no array
     soma = numpy.sum(arr)
@@ -159,7 +159,7 @@ def funcao_numpy_concatenate():
     print(matriz2)
     print("Resultado da concatenação ao longo do eixo 1:")
     print(resultado)
-#funcao_numpy_concatenate()
+funcao_numpy_concatenate()
 
 """16. **numpy.split()**: Divide um array em subarrays ao longo de um eixo especificado."""
 def funcao_numpy_split():
@@ -211,7 +211,7 @@ def funcao_numpy_sort():
     
     print("Matriz bidimensional ordenada ao longo do eixo 1 em ordem crescente:")
     print(matriz_ordenada_2d)
-funcao_numpy_sort()
+#funcao_numpy_sort()
 
 """18. **numpy.argmax()** e **numpy.argmin()**: Encontram os índices dos valores máximo e mínimo em um array, respectivamente."""
 def funcao_numpy_sort():
@@ -315,7 +315,7 @@ def funcao_numpy_shape_com_full():
     print(dimensoes_matriz)  # Significa que a matriz terá 3 linhas e 4 colunas.
 #funcao_numpy_shape_com_full()
 
-
+#vstack
 
 
 
