@@ -121,9 +121,7 @@ def funcao_numpy_dot():
     vetor1 = numpy.array([1, 2, 3])
     vetor2 = numpy.array([4, 5, 6])
     # Realiza o produto escalar entre os dois vetores
-
     # Produto Escalar = (1 * 4) + (2 * 5) + (3 * 6) = 4 + 10 + 18 = 32
-
     produto_escalar = numpy.dot(vetor1, vetor2)
     print("Produto escalar dos vetores:", produto_escalar)
 #funcao_numpy_dot()
@@ -135,10 +133,8 @@ def funcao_numpy_transpose():
                           [4, 5, 6]])
     # Transpõe a matriz (troca as linhas por colunas)
     matriz_transposta = numpy.transpose(matriz)
-    
     print("Matriz original:")
     print(matriz)
-    
     print("Matriz transposta:")
     print(matriz_transposta)
 #funcao_numpy_transpose()
@@ -166,16 +162,12 @@ def funcao_numpy_split():
     # Crie uma matriz 2x4
     matriz = numpy.array([[1, 2, 3, 4],
                           [5, 6, 7, 8]])
-
     # Use a função split para dividir a matriz em duas submatrizes ao longo do eixo 1 (colunas)
     submatrizes = numpy.split(matriz, 2, axis=1)
-
     print("Matriz original:")
     print(matriz)
-
     print("Submatriz 1:")
     print(submatrizes[0])
-
     print("Submatriz 2:")
     print(submatrizes[1])
 #funcao_numpy_split()
@@ -184,31 +176,22 @@ def funcao_numpy_split():
 def funcao_numpy_sort():
     # Crie uma matriz 1x4 não ordenada
     matriz = numpy.array([3, 1, 4, 2])
-    
     # Ordene a matriz em ordem crescente (padrão)
     matriz_ordenada = numpy.sort(matriz)
-    
     print("Matriz original:")
     print(matriz)
-    
     print("Matriz ordenada em ordem crescente:")
     print(matriz_ordenada)
-
     # Para ordenar em ordem decrescente, você pode usar o parâmetro 'kind'
     matriz_decrescente = numpy.sort(matriz, kind='heapsort')
-    
     print("Matriz ordenada em ordem decrescente:")
     print(matriz_decrescente)
-
     # A função 'numpy.sort()' também pode ser usada com matrizes multidimensionais
     matriz_2d = numpy.array([[3, 1, 4], [2, 6, 5]])
-    
     # Ordene a matriz bidimensional ao longo do eixo 1 (colunas) em ordem crescente
     matriz_ordenada_2d = numpy.sort(matriz_2d, axis=1)
-    
     print("Matriz bidimensional original:")
     print(matriz_2d)
-    
     print("Matriz bidimensional ordenada ao longo do eixo 1 em ordem crescente:")
     print(matriz_ordenada_2d)
 #funcao_numpy_sort()
@@ -217,31 +200,22 @@ def funcao_numpy_sort():
 def funcao_numpy_sort():
     # Crie uma matriz 1x4 não ordenada
     matriz = numpy.array([3, 1, 4, 2])
-    
     # Ordene a matriz em ordem crescente (padrão)
     matriz_ordenada = numpy.sort(matriz)
-    
     print("Matriz original:")
     print(matriz)
-    
     print("Matriz ordenada em ordem crescente:")
     print(matriz_ordenada)
-
     # Para ordenar em ordem decrescente, você pode usar o parâmetro 'kind'
     matriz_decrescente = numpy.sort(matriz)[::-1]
-    
     print("Matriz ordenada em ordem decrescente:")
     print(matriz_decrescente)
-
     # A função 'numpy.sort()' também pode ser usada com matrizes multidimensionais
     matriz_2d = numpy.array([[3, 1, 4], [2, 6, 5]])
-    
     # Ordene a matriz bidimensional ao longo do eixo 1 (colunas) em ordem crescente
     matriz_ordenada_2d = numpy.sort(matriz_2d, axis=1)
-    
     print("Matriz bidimensional original:")
     print(matriz_2d)
-    
     print("Matriz bidimensional ordenada ao longo do eixo 1 em ordem crescente:")
     print(matriz_ordenada_2d)# ordena nas colunas
 #funcao_numpy_sort()
@@ -250,13 +224,10 @@ def funcao_numpy_sort():
 def funcao_numpy_where():
     # Crie um array unidimensional
     array = numpy.array([1, 2, 3, 4, 5])
-    
     # Encontre os índices onde os elementos são maiores que 3
     indices = numpy.where(array > 3)
-    
     print("Array original:")
     print(array)
-    
     print("Índices onde os elementos são maiores que 3:")
     print(indices)
 #funcao_numpy_where()
