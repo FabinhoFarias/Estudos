@@ -86,7 +86,7 @@ def questao_1_matrizes():
     contador = 0
     # CONDIÇÃO: As matrizes devem ser n x k
     # Dada as matrizes A + B = C, A[linha][coluna] + B[linha][coluna] = C[linha][coluna]
-    matriz_1 = np.ones((3 ,5), dtype=float)
+    matriz_1 = np.zeros((3 ,5), dtype=float)
     dimensoes = matriz_1.shape
     print(f'Matriz 1: \n{matriz_1}')
     matriz_2 = np.ones((3 ,5), dtype=int)
@@ -105,21 +105,47 @@ def questao_1_matrizes():
     print(matriz_reposta)
 
 """Q2 - Faça um programa que multiplica uma matriz 3 x 3 de inteiros por um escalar k e imprima o resultado na tela. O usuário deve fornecer os valores da matriz e de k."""
+def questao_2_matrizes():
+    matriz = np.ones((3 ,3), dtype=int)
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    for linha in matriz:
+        numero_de_linhas += 1
+        for elemento in linha:
+            numero_de_colunas += 1
+            elemento = int(input(f'A{numero_de_lihas}{numero_de_colunas}: '))
+            matriz[(numero_de_linhas-1)][(numero_de_colunas-1)] = elemento
+        numero_de_colunas = 0
+    K = int(input('Constante: '))
+    #dimensoes = matriz_1.shape
+    print(f'Matriz: \n{matriz}')
+    #matriz_reposta = np.empty((dimensoes[0], dimensoes[1]), dtype=float)
+    #RESOLUÇÃO: faz a soma escalar das linhas da matriz
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    for linha in matriz:
+        numero_de_lihas += 1
+        for elemento in linha:
+            numero_de_colunas += 1
+            elemento *= K
+            novo_elemento = elemento
+            print(f'A{numero_de_lihas}{numero_de_colunas} x {K} = {novo_elemento} ')
+            matriz[(numero_de_linhas-1)][(numero_de_colunas-1)] = novo_elemento
+        numero_de_colunas = 0
+    print(matriz)
 
 
-
-"""Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) ou uma mensagem de “não 
-encontrado”."""
-
-
-
-"""Q4 - Leia um vetor de 16 posições e troque os 8 primeiros valores pelos 8 últimos e vice-versa. Escreva ao final o vetor obtido."""
-
-
-
-
-
-
+"""Q3 - Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) ou uma mensagem de “não 
+encontrado."""
+def questão_3_matrizes():
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    matriz = np.random.randint(1, 401, size=(20,20))
+    elemento_busca = float(input(f'Float: '))
+    matriz_ordenada = np.sort(matriz)
+    print(f'{matriz}\n\n{matriz_ordenada}')
+    indices = np.where(matriz_ordenada == elemento_busca)
+    print(indices)
 
 
 
