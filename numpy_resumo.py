@@ -155,7 +155,7 @@ def funcao_numpy_concatenate():
     print(matriz2)
     print("Resultado da concatenação ao longo do eixo 1:")
     print(resultado)
-funcao_numpy_concatenate()
+#funcao_numpy_concatenate()
 
 """16. **numpy.split()**: Divide um array em subarrays ao longo de um eixo especificado."""
 def funcao_numpy_split():
@@ -248,7 +248,6 @@ def funcao_numpy_where():
 def funcao_numpy_eye():
     # Crie uma matriz identidade 3x3
     matriz_identidade = numpy.eye(3) # Esse '3' pode ser n. Quando for n será uma matriz n por n
-    
     print("Matriz Identidade 3x3:")
     print(matriz_identidade)
 #funcao_numpy_eye()
