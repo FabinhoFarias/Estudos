@@ -15,28 +15,8 @@ Os dados são armazenados de forma contígua na memória (endereços sequenciais
 
 # Vetores são estruturas UNIDIMENSIONAIS que armazenam elementos de um mesmo tipo.
 # Numpy oferece suporte a vetores em Python encapsulando-os em objetos da classe "ndarray" (signidica numero dimensão array, ou. um array multidimensional)
-
-
 # Como os dados são armazenados contiguamente, é preciso informar o tipo dos dados a ser guardado e sua quantidade.
-"""
-Usando a função "empty", é criado um vetor com espaços vazios. 
-
-vetor = numpy.empty(shape, dtype=float, order='C')
-
-shape: Especifica o tamanho e a forma do array que você deseja criar, como o número de linhas e colunas em um array bidimensional. Pode ser passado um número ou uma tupla (n, n)
-dtype: Define o tipo de dado dos elementos no array, como inteiros, números de ponto flutuante, strings, etc.
-order: Determina a ordem de armazenamento dos elementos na memória, podendo ser 'C' (ordem de C) para armazenamento por linhas ou 'F' (ordem de Fortran) para armazenamento por colunas.
-"""
-
-def vetor_empty():
-    vetor_unidimensional = np.empty((4), int)
-    print(f'Vetor unidimensional:\n {vetor_unidimensional}') # a sáida foi: [ 1747752668 -1627480792 -1602070744 -1923164309] (é lixo de memória)
-    vetor_bidimensional = np.empty((2, 2), int)
-    print(f'Vetor bidimensional:\n {vetor_bidimensional}')
-# vetor_empty()
-
-
-
+"""Olhar o 'numpy_resumo.py' para construir vetores com o numpy"""
 #-------------------------------------ATIVIDADES DO PDF---------------------------------------
 
 # QUESTÕES PARA VETORES
@@ -147,6 +127,178 @@ def questão_3_matrizes():
     indices = np.where(matriz_ordenada == elemento_busca)
     print(indices)
 
-
+"""Q4 - Dada uma matriz 5x5, elabore um algoritmo que imprima:"""
+"""Parte 1: A diagonal principal"""
+def questão_4_matrizes_parte_1():
+    matriz = np.random.randint(1, 401, size=(5,5))
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    for linha in matriz:
+        for elemento in linha:
+            if numero_de_colunas == numero_de_linhas:
+                print(f'Elementos da diagonal principal: {matriz[numero_de_linhas][numero_de_colunas]}')
+            numero_de_colunas += 1
+        numero_de_colunas = 0
+        numero_de_linhas += 1
+"""Parte 2: A diagonal secundária"""
+def questão_4_matrizes_parte_2():
+    matriz = np.random.randint(1, 401, size=(5,5))
+    print(matriz)
+    numero_de_linhas = 0
+    numero_de_colunas = 5
+    for linha in matriz:
+        numero_de_colunas -= 1
+        print(f'Elementos da diagonal secundária: {matriz[numero_de_linhas][numero_de_colunas]}')
+        numero_de_linhas += 1
+"""Parte 3: A soma da linha 4"""
+def questão_4_matrizes_parte_3():
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    matriz = np.random.randint(1, 401, size=(5,5))
+    soma_linha_4 = 0
+    for elemento in matriz[3]:
+        soma_linha_4 += elemento
+    print(f'Linha 4: {matriz[3]}')
+    print(f'Soma da linha 4: {soma_linha_4}')
+"""Parte 4: A soma da coluna 2"""
+def questão_4_matrizes_parte_4():
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    matriz = np.random.randint(1, 401, size=(5,5))
+    soma_linha_1 = 0
+    for elemento in matriz[1]:
+        soma_linha_4 += elemento
+    print(f'Linha 4: {matriz[1]}')
+    print(f'Soma da linha 4: {soma_linha_1}')
+"""Parte 5: Tudo, exceto a diagonal principal"""
+def questão_4_matrizes_parte_5():
+    matriz = np.ones((5, 5), dtype=int)
+    numero_de_linhas = 0
+    numero_de_colunas = 0
+    for linha in matriz:
+        for elemento in linha:
+            if numero_de_colunas != numero_de_linhas:
+                print(f'Elementos diferente da diagonal principal: {matriz[numero_de_linhas][numero_de_colunas]}')
+            numero_de_colunas += 1
+        numero_de_colunas = 0
+        numero_de_linhas += 1
 
 #--------------------------------------------ANÁLISE DE ALGORITIMOS---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------------------------------------PILHAS---------------------------------------------------------------------------------------------
+
+
+"""Conceito de Pilhas: Uma pilha é uma estrutura de dados linear que segue a ordem Last In, First Out (LIFO), 
+                       o que significa que o último elemento inserido é o primeiro a ser removido. 
+                       Isso é análogo a uma pilha de pratos, onde você adiciona um prato no topo e remove sempre o prato mais recente que foi adicionado."""
+
+# Elementos Principais: Topo da Pilha: O ponto de acesso para inserção (push) e remoção (pop) de elementos. É o local onde as operações são realizadas.
+#                       Base da Pilha: O ponto oposto ao topo, onde a pilha começa. É o local onde os elementos permanecem constantes.
+
+"""Operações Básicas em Pilhas: Push:        Adicionar um elemento no topo da pilha.
+                                Pop:         Remover o elemento do topo da pilha.
+                                Peek ou Top: Visualizar o elemento no topo da pilha sem removê-lo."""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""Implementação de Pilhas em Python:
+
+    Usando listas nativas do Python.
+    Criando uma classe de pilha personalizada."""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+Aplicações de Pilhas:
+
+    Avaliação de expressões aritméticas (usando a notação polonesa reversa).
+    Rastreamento de chamadas de funções (retornos).
+    Desfazer operações em editores de texto.
+Exercícios Práticos:
+
+    Implementar algoritmos que envolvem o uso de pilhas.
+    Resolver problemas que podem ser abordados eficientemente com pilhas.
+    Pilhas em Algoritmos e Estruturas de Dados:
+
+    Utilização de pilhas em algoritmos de busca em profundidade (DFS).
+    Utilização de pilhas em algumas estruturas de dados avançadas, como a pilha de chamadas na recursão.
+Filas usando Duas Pilhas:
+
+    Implementar uma fila usando duas pilhas.
+Bibliotecas em Python:
+
+    Conhecer as bibliotecas ou módulos relacionados a pilhas, como collections.deque.
+Projetos Práticos:
+
+    Implementar um projeto prático que envolva o uso de pilhas, como um sistema de verificação de parênteses em expressões matemáticas.
+Complexidade de Tempo em Operações de Pilhas:
+
+Compreender a complexidade de tempo das operações básicas em pilhas.
+"""
