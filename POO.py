@@ -197,25 +197,7 @@ print(p2.nome)
 
 #Exercício do slide de POO de Sergio
 
-class Aluno:
-    def __init__ (self):
-        self.cpf = 0
-        self.nome = ''
-        self.nota1 = 0 
-        self.nota2 = 0
-        self.nota3 = 0
-        """
-    def inicializarNota(self, nota, numeroProva)
-        self.nota1 = 
-        self.nota2 = 
-        self.nota3 = 
-    def verificarSituacaoMedia(nota, numeroProva)
-        nota1 = 
-        nota2 = 
-        nota3 = 
-        """
-
-def wjbfvi():
+def questao():
     class Playlist:
         def __init__(self):
             self.duracao = 0
@@ -233,18 +215,26 @@ def wjbfvi():
             self.genero = genero
 
         def append_lista(self, musicas):
-            musicas.split(', ')
-            self.musicas = musicas
+            self.musicas.extend(musicas.split(', '))
 
         def printar_musicas(self):
             print(self.musicas)
+
+        def quantidade_de_musicas_necessarias(self):
+            return int(len(musicas)/3)
+        
+        def quantidade(self):
+            return len(musicas)
+        
+        def tempo_musicas(self):
+            return len(musicas)*3
 
         def printar_tudo(self):
             print(f'{self.duracao}\n{self.nome}\n{self.genero}\n{self.musicas}')
 
     playlists_totais = [] #Será um array de objetos 
     contador = 1
-
+    numero_total_de_musicas_da_playlist = 0
     numero_de_playlists = int(input())
     for i in range(numero_de_playlists): #Loop para colocar a quantidade de playlists 
         playlists_totais.append(f'play{contador}')
@@ -258,60 +248,19 @@ def wjbfvi():
         playlists_totais[i].modificar_genero(genero)
         musicas = str(input())
         playlists_totais[i].append_lista(musicas)
-
+        numero_total_de_musicas_da_playlist += playlists_totais[i].quantidade()
+    print(numero_total_de_musicas_da_playlist)
+    
     genero_solicitado = str(input())
+    tempo_playlist = int(input())
+
     for i in range(len(playlists_totais)):
-        if playlists_totais[i].nome == genero_solicitado:
-            linkquestao = 'https://dikastis.com.br/problems/01GY8YMFZ0K8T7QFF5HDX3QYPP'
+        if playlists_totais[i].genero == genero_solicitado:
+            if playlists_totais[i].tempo_musicas() < tempo_playlist:
+                n = int((tempo_playlist - playlists_totais[i].tempo_musicas()) / 3)
+                print(f'Precisaremos adicionar mais {n} músicas à playlist {playlists_totais[i].nome}')
+            elif playlists_totais[i].tempo_musicas() > tempo_playlist:
+                n = int((playlists_totais[i].tempo_musicas() - tempo_playlist) / 3)
+                print(f'Precisaremos remover {n} músicas da playlist {playlists_totais[i].nome}')
 
-    #criar while para inserir novas entradas 
-    """play = Playlist()
-
-    musicas = input().split(', ')
-    print(musicas)
-    play.append_lista(musicas)
-    play.printar_musicas()"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    """    def modificar_duracao(self):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        def append(self):
-        def duracao(self,):
-    """
+#questao()
