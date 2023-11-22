@@ -215,4 +215,103 @@ class Aluno:
         nota3 = 
         """
 
- 
+def wjbfvi():
+    class Playlist:
+        def __init__(self):
+            self.duracao = 0
+            self.nome = 'jhbib'
+            self.genero = ''
+            self.musicas = []
+
+        def modificar_duracao(self, duracao):
+            self.duracao = duracao
+
+        def modificar_nome(self, nome):
+            self.nome = nome
+
+        def modificar_genero(self, genero):
+            self.genero = genero
+
+        def append_lista(self, musicas):
+            musicas.split(', ')
+            self.musicas = musicas
+
+        def printar_musicas(self):
+            print(self.musicas)
+
+        def printar_tudo(self):
+            print(f'{self.duracao}\n{self.nome}\n{self.genero}\n{self.musicas}')
+
+    playlists_totais = [] #Será um array de objetos 
+    contador = 1
+
+    numero_de_playlists = int(input())
+    for i in range(numero_de_playlists): #Loop para colocar a quantidade de playlists 
+        playlists_totais.append(f'play{contador}')
+        playlists_totais[contador-1] = Playlist()
+        contador += 1 
+
+    for i in range(numero_de_playlists): #Loop para modificar as informações das playlists 
+        nome = str(input())
+        playlists_totais[i].modificar_nome(nome)
+        genero = str(input())
+        playlists_totais[i].modificar_genero(genero)
+        musicas = str(input())
+        playlists_totais[i].append_lista(musicas)
+
+    genero_solicitado = str(input())
+    for i in range(len(playlists_totais)):
+        if playlists_totais[i].nome == genero_solicitado:
+            linkquestao = 'https://dikastis.com.br/problems/01GY8YMFZ0K8T7QFF5HDX3QYPP'
+
+    #criar while para inserir novas entradas 
+    """play = Playlist()
+
+    musicas = input().split(', ')
+    print(musicas)
+    play.append_lista(musicas)
+    play.printar_musicas()"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    """    def modificar_duracao(self):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        def append(self):
+        def duracao(self,):
+    """
