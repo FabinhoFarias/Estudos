@@ -113,8 +113,7 @@ def questao_2_matrizes():
             matriz[(numero_de_linhas-1)][(numero_de_colunas-1)] = novo_elemento
         numero_de_colunas = 0
     print(matriz)
-
-
+ 
 """Q3 - Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) ou uma mensagem de “não 
 encontrado."""
 def questão_3_matrizes():
@@ -185,19 +184,31 @@ def questão_4_matrizes_parte_5():
 
 #--------------------------------------------ANÁLISE DE ALGORITIMOS---------------------------------------------------------------------------------------------
 
+# COMPLEXIDDADE: Medida da quantidade de recursos que é demandada do computador para realizar determinado algoritimo. Ela independe da linguagem de programação e da 
+#                máquina que vai rodar o algoritimo.
 
+# Quando é falado sobre a complexidade de um algoritimo, esta sendo referenciado o pior caso e em como ela cresce em função da entrada N. 
+# A notaçãio O() é usada para fazer menção ao comportamento da função que vai ser o termo de maior grau.
+# Por exemplo,  a questão_4_matrizes_parte_5() tem 2 for, ou seja, ela vai percorrer n^2 vezes. Então, é um algoritimo O(n^2)
 
+#--------------------------------------------LISTAS EM ALOCAÇÃO SEQUENCIAL----------------------------------------------------------------------------------------
+# É possível encontrar um elemento de forma aleatória no python através do seu índice. Por exemplo, i[n] irá retornar o [n-ésimo - 1] termo da lista de forma automática. Isso é O(1). 
+""" 1 - Dinamicamente Tipada:         Python permite criar listas sem declarar explicitamente os tipos dos elementos, facilitando a inclusão de diferentes tipos.
+    2 - Alocação Dinâmica de Memória: A quantidade de memória necessária para armazenar elementos em uma lista é alocada dinamicamente, permitindo o crescimento ou a redução da lista conforme necessário.
+    3 - Objetos Referenciados:        Os elementos de uma lista são referências a objetos, não os próprios objetos, proporcionando flexibilidade para lidar com tipos diferentes.
+    4 - Tamanho Dinâmico:             O tamanho de uma lista pode ser alterado durante a execução do programa, permitindo adição ou remoção de elementos de forma flexível."""
+# Tópico 3 é um ponteiro. Em Python, as listas guardam um endereço (ponteiro) de onde está o objeto.
+def exemplo_de_referencia_do_ponteiro():
+    """Exemplo"""
+    lista = [1, 2, 3]
+    print(lista)
+    outra_lista = lista
+    print(outra_lista)
+    lista = lista.append([4]) # Mesmo alterando só a primeira lista, como a segunda aponta para o mesmo lugar da primeira, a mudança terá efeito na segunda tambem. [1, 2, 3, [4]]
+    print(outra_lista) 
+"""Duvida: como eu faço para dizer exatamente a complexidade de um algoritimo"""
 
-
-
-
-
-
-
-
-
-
-
+# ALGORITIMOS DE BUSCA EM UMA LISTA :
 
 
 
@@ -225,55 +236,10 @@ def questão_4_matrizes_parte_5():
                                 Pop:         Remover o elemento do topo da pilha.
                                 Peek ou Top: Visualizar o elemento no topo da pilha sem removê-lo."""
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """Implementação de Pilhas em Python:
 
     Usando listas nativas do Python.
     Criando uma classe de pilha personalizada."""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 """
 Aplicações de Pilhas:
@@ -281,25 +247,29 @@ Aplicações de Pilhas:
     Avaliação de expressões aritméticas (usando a notação polonesa reversa).
     Rastreamento de chamadas de funções (retornos).
     Desfazer operações em editores de texto.
+
 Exercícios Práticos:
 
     Implementar algoritmos que envolvem o uso de pilhas.
     Resolver problemas que podem ser abordados eficientemente com pilhas.
-    Pilhas em Algoritmos e Estruturas de Dados:
+
+Pilhas em Algoritmos e Estruturas de Dados:
 
     Utilização de pilhas em algoritmos de busca em profundidade (DFS).
     Utilização de pilhas em algumas estruturas de dados avançadas, como a pilha de chamadas na recursão.
-Filas usando Duas Pilhas:
 
+Filas usando Duas Pilhas:
     Implementar uma fila usando duas pilhas.
+
 Bibliotecas em Python:
 
     Conhecer as bibliotecas ou módulos relacionados a pilhas, como collections.deque.
+
 Projetos Práticos:
 
     Implementar um projeto prático que envolva o uso de pilhas, como um sistema de verificação de parênteses em expressões matemáticas.
+
 Complexidade de Tempo em Operações de Pilhas:
 
-Compreender a complexidade de tempo das operações básicas em pilhas.
+    Compreender a complexidade de tempo das operações básicas em pilhas.
 """
-
