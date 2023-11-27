@@ -6,7 +6,7 @@ print(resultados)
 #copiar questoes
 #colar questoes na planilha
 #copiar gabarito
-#colar gabarito na planilha
+#colar gabarito na planilha 
 #copiar ano
 #colar ano na planilha
 #finalizar coleta de questoes
