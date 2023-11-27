@@ -10,7 +10,7 @@ Em Python, listas são estruturas nativas que permitem o armazenamento sequencia
 Vetores, matrizes e tensores são alternativas a listas para armazenamento de múltiplos valores de mesmo tipo (estruturas homogêneas)
 Os dados são armazenados de forma contígua na memória (endereços sequenciais para blocos de mesmo tamanho), permitem indexar os elementos de forma direta (o que é mais eficiente de que em listas)
 """
- 
+
 # ----------------------------------------------------VETORES ---------------------------------------------------------------------------------------------
 
 # Vetores são estruturas UNIDIMENSIONAIS que armazenam elementos de um mesmo tipo.
@@ -210,8 +210,35 @@ def exemplo_de_referencia_do_ponteiro():
 
 # ALGORITIMOS DE BUSCA EM UMA LISTA :
 
+"""Alocação sequencial"""
+# Se para achar um elemento numa lista com seu indice é O(1), para achar o indice de um elemento numa lista a complexidade muda. 
+# Busca linear em lista em alocação sequencial
+def busca(lista, elem):
+    """Retorna o índice elem se ele estiver na lista ou None, caso contrário"""
+    for i in range(len(lista)): # Percorre a lista inteira (n)
+        if lista[i] == elem:    # Percorre a lista inteira (n)
+            return i  # +1 operação
+    return None       # +1 operação
+    # complexidade: n + n + 1 = 2n + 1, O(n)
+def exemplo_de_busca_num_lista():
+    lista_estranha = [8, "5", 32, 0, "python", 11]
+    print(f'Itens na lista: {lista_estranha}')
+    elemento = input('digite um elemento: Ex: "python" ')
+    indice = busca(lista_estranha, elemento)
+    if indice is not None:
+        print("O índice do elemento {} é {}".format(elemento, indice))
+    else:
+        print("O elemento {} não se encontra na lista".format(elemento))
+
+# INSERÇÃO E REMOÇÃO:
+
+# Inserção: O pior caso, é quando precisa ser inserido um elemento na primeira posição. Todos os elementos serão arrastados uma casa para a direita e o algoritimo precisará percorrer n-1 casas da lista.
+#           O melhor caso é para inserir na ultima posição, pois só precisará criar um espaço de memória.
 
 
+
+# Remoção:  O pior caso, é quando precisa ser removido um elemento na ultima posição. O algoritimo precisará percorrer n-1 casas da lista.
+#           O melhor caso é para remover na primeira posição, pois só precisará remover um espaço de memória no inicio da lista.
 
 
 
