@@ -71,18 +71,28 @@ def media_aritmetica(lista):
     print(f'Média: {media}')
 
 def tabela_de_frequencia(lista):
-    elemento = []
-    frequencia = []
+    nummero_de_classes = 5
     lista.sort()
-    for i in lista:
-        if i not in elemento:
-            elemento.append(i)
-            frequencia.append(1)
-        else:
-            frequencia[-1] += 1
-    print('-----TABELA DE FREQUENCIA-----\n')
-    for i in range(len(elemento)):
-        print(f'---- {elemento[i]} --------------- {frequencia[i]} ----')
+    maximo = max(lista)
+    minimo = min(lista)
+    amplitude_classe = (maximo - minimo) / nummero_de_classes
+    elementos = []
+    frequencias = []
+    limites_classes = []
+    limite_inferior = min(lista)
+    for i in range(nummero_de_classes):
+        limite_superior = limite_inferior + amplitude_classe
+        frequencia = sum(limite_inferior <= elemento < limite_superior for elemento in lista)
+        elementos.append(f'{limite_inferior:.2f}-{limite_superior:.2f}')
+        frequencias.append(frequencia)
+        limites_classes.append((limite_inferior, limite_superior))
+        limite_inferior = limite_superior
+
+    print('----- TABELA DE FREQUÊNCIA -----\n')
+    print(f'{"Classe": <20} {"Frequência":}')
+    print('-' * 32)
+    for i in range(nummero_de_classes):
+        print(f'{elementos[i]: <20} {frequencias[i]:}')
         time.sleep(0.3)
 
 def quartil(n, lista):
@@ -102,9 +112,17 @@ def quartil(n, lista):
         print(f'Primeiro quartil: {q}')
 
 def percentil(n, lista):
-    lista = np.array(lista)
-    q = np.percentile(lista, n)
-    print(f'Percentil {n}: {q}')
+    lista_ordenada = sorted(lista)
+    posicao = n * (len(lista_ordenada) - 1) / 100
+    if posicao.is_integer():
+        percentil_valor = lista_ordenada[int(posicao)]
+    else:
+        posicao_inf = int(posicao)
+        posicao_sup = posicao_inf + 1
+        valor_inf = lista_ordenada[posicao_inf]
+        valor_sup = lista_ordenada[posicao_sup]
+        percentil_valor = valor_inf + (posicao - posicao_inf) * (valor_sup - valor_inf)
+    print(f'Percentil {n}: {percentil_valor}')
 
 def questao1():
     comando = '\nDescreva o que são dados quantitativos e qualitativos. Explique e dê três exemplos para cada um deles.\n'
@@ -171,6 +189,31 @@ def questao5():
     moda(lista)
     tabela_de_frequencia(lista)
 
+def questao6():
+    comando = 'Sabendo que um povoado tem 300 moradores, informe quantos moradores possuem idade entre 30-39 e 60-69 sabendo que a mediana é 31,36.'
+    print(comando.upper())
+    time.sleep(0.5)
+    mediana = 31.36
+    frequencia_acumulada_30_39 = 44 + 66 + 32
+    frequencia_acumulada_60_90 = 44 + 66 + 32 + 35 + 31
+    populacao_total = 300
+    frequencia_acumulada_total = 44 + 66 + 32 + 35 + 31 + 13 + 3
+    x_mais_y = frequencia_acumulada_total - 2 * frequencia_acumulada_30_39 - 2 * frequencia_acumulada_60_90
+    x = x_mais_y - frequencia_acumulada_30_39
+    y = x_mais_y - frequencia_acumulada_60_90
+    print(f'\nFrequência acumulada até 30-39 anos: {frequencia_acumulada_30_39}\n')
+    time.sleep(0.5)
+    print(f'Frequência acumulada até 60-69 anos: {frequencia_acumulada_60_90}\n')
+    time.sleep(0.5)
+    print(f'População total: {populacao_total}\n')
+    print(f'Frequência acumulada total: {frequencia_acumulada_total}\n')
+    time.sleep(0.5)
+    print(f'X + Y = {x_mais_y}\n')
+    time.sleep(0.5)
+    print(f'Quantidade de moradores entre 30-39 anos (X): {x}\n')
+    time.sleep(0.5)
+    print(f'Quantidade de moradores entre 60-69 anos (Y): {y}\n')
+
 def questao7():
     comando = [['Os dados a seguir representam as idades (em anos) de pessoas que participaram de um campeonato de tênis de mesa:'], ['a) Tabela frequência:'], ['b) Média, moda e mediana'],['c) Q1 e Q3'], ['d) P40']]
     lista = [25, 32, 20, 28, 22, 36, 19, 31, 24, 27, 35, 29, 26, 21, 23, 37, 30, 18, 34, 39, 38, 33, 40, 25,
@@ -196,3 +239,52 @@ def questao7():
     time.sleep(0.5)
     percentil(40, lista)
 
+def questao9():
+    comando = 'Dado o seguinte gráfico que mostra as frequências cardíacas de uma amostra de adultos, calcule a média das frequências.'
+    a = 2 * 55
+    print(f' 2*55 = {a}\n')
+    time.sleep(0.5)
+    b = 15 * 60
+    print(f' 15*60 = {b}\n')
+    time.sleep(0.5)
+    c = 28 * 65
+    print(f' 28*65 = {a}\n')
+    time.sleep(0.5)
+    d = 42 * 70
+    print(f' 42*70 = {a}\n')
+    time.sleep(0.5)
+    e = 30 * 75
+    print(f' 30*75 = {a}\n')
+    time.sleep(0.5)
+    f = 20 * 80
+    print(f' 20*80 = {a}\n')
+    time.sleep(0.5)
+    g = 6 * 85
+    print(f' 6*85 = {a}\n')
+    time.sleep(0.5)
+    soma = a + b + c + d + e + f + g
+    pesos = 2 + 15 + 28 + 42 + 30 + 20 + 6
+    print(f' Soma dos pesos: {pesos}')
+    media = soma / pesos
+    print(f'Media = {soma} / {pesos} = {media}')
+
+def questao10():
+    comando = 'A tabela a seguir mostra as exportações dos Estados Unidos (em bilhões de dólares) para 19 países em um ano recente.'
+    dicionario = {'Canadá': 280.9 , 'México': 198.4, 'Japão': 65.7, 'Coreia do Sul': 43.4, 'Alemanha': 49.2, 'Taiwan': 25.9,
+
+Cingapura: 31,2
+25,9
+Franca: 278
+Holanda:
+42,4
+China:
+103,9 | Brasil:
+42,9
+_29_9
+Austrália: 275] Bélcica:-
+Malásia: 14,2 " Italia: 16.0
+1 Tailândia:__010.9
+24.4
+Suica:
+Arábia Saudita
+13.8}
