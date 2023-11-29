@@ -39,7 +39,7 @@ def besteira():
 
 #----------------------------------------ATIVIDADE-------------------------------------------
 import time
-
+"""Rode as funções que as respostas estarão na tela."""
 def moda(lista):
     elemento = []
     frequencia = []
@@ -71,6 +71,21 @@ def media_aritmetica(lista):
     print(f'Média: {media}')
 
 def tabela_de_frequencia(lista):
+    elemento = []
+    frequencia = []
+    lista.sort()
+    for i in lista:
+        if i not in elemento:
+            elemento.append(i)
+            frequencia.append(1)
+        else:
+            frequencia[-1] += 1
+    print('-----TABELA DE FREQUENCIA-----\n')
+    for i in range(len(elemento)):
+        print(f'---- {elemento[i]} --------------- {frequencia[i]} ----')
+        time.sleep(0.3)
+
+def tabela_de_frequencia_classes(lista):
     nummero_de_classes = 5
     lista.sort()
     maximo = max(lista)
@@ -190,29 +205,10 @@ def questao5():
     tabela_de_frequencia(lista)
 
 def questao6():
-    comando = 'Sabendo que um povoado tem 300 moradores, informe quantos moradores possuem idade entre 30-39 e 60-69 sabendo que a mediana é 31,36.'
-    print(comando.upper())
-    time.sleep(0.5)
-    mediana = 31.36
-    frequencia_acumulada_30_39 = 44 + 66 + 32
-    frequencia_acumulada_60_90 = 44 + 66 + 32 + 35 + 31
-    populacao_total = 300
-    frequencia_acumulada_total = 44 + 66 + 32 + 35 + 31 + 13 + 3
-    x_mais_y = frequencia_acumulada_total - 2 * frequencia_acumulada_30_39 - 2 * frequencia_acumulada_60_90
-    x = x_mais_y - frequencia_acumulada_30_39
-    y = x_mais_y - frequencia_acumulada_60_90
-    print(f'\nFrequência acumulada até 30-39 anos: {frequencia_acumulada_30_39}\n')
-    time.sleep(0.5)
-    print(f'Frequência acumulada até 60-69 anos: {frequencia_acumulada_60_90}\n')
-    time.sleep(0.5)
-    print(f'População total: {populacao_total}\n')
-    print(f'Frequência acumulada total: {frequencia_acumulada_total}\n')
-    time.sleep(0.5)
-    print(f'X + Y = {x_mais_y}\n')
-    time.sleep(0.5)
-    print(f'Quantidade de moradores entre 30-39 anos (X): {x}\n')
-    time.sleep(0.5)
-    print(f'Quantidade de moradores entre 60-69 anos (Y): {y}\n')
+    resposta = 'Utilizando a fórmula (31,36 = 30 + [(300/2 - 142)/X] * 9), encontramos que X é aproximadamente igual a 53.'
+    resposta2 = 'Somamos as frequências acumuladas até o momento (44 + 66 + 32 + X + 35 + 31) e subtraiamos esse total da população total conhecida (300). O resultado é Y, aproximadamente igual a 23.'
+    print(resposta)
+    print(resposta2)
 
 def questao7():
     comando = [['Os dados a seguir representam as idades (em anos) de pessoas que participaram de um campeonato de tênis de mesa:'], ['a) Tabela frequência:'], ['b) Média, moda e mediana'],['c) Q1 e Q3'], ['d) P40']]
@@ -270,21 +266,41 @@ def questao9():
 
 def questao10():
     comando = 'A tabela a seguir mostra as exportações dos Estados Unidos (em bilhões de dólares) para 19 países em um ano recente.'
-    dicionario = {'Canadá': 280.9 , 'México': 198.4, 'Japão': 65.7, 'Coreia do Sul': 43.4, 'Alemanha': 49.2, 'Taiwan': 25.9,
+    a = 'a) Calcule a média e a mediana das exportações.\n'
+    b = 'b) Calcule a média e a mediana sem as exportações para o Canadá. Qual medida de tendência central, a média ou a mediana, foi mais afetada pela eliminação dos dados do Canadá? Por que?\n'
+    c = 'c) As exportações americanas para a Índia foram de US$21,5 bilhões. Encontre média e a mediana, adicionando as exportações para a Índia aos dados originais. Qual medida de tendência central foi mais afetada pela inclusão dos dados da Índia? Por que?\n'
+    
+    dicionario = { 'México': 198.4, 'Japão': 65.7, 'Coreia do Sul': 43.4, 'Alemanha': 49.2, 'Taiwan': 25.9, 'Cingapura': 31.2, 'Holanda': 42.4, 'Franca': 27.8, 'Holanda': 42.4,
+    'China': 103.9, 'Brasil': 42.9, 'Belgica': 29.9, 'Austrália': 27.5, 'Malásia': 14.2, 'Italia': 16.0, 'Tailândia': 10.9, 'Suica': 24.4, 'Arábia Saudita': 13.8, 'Reino Unido':55.9, 'Canadá': 280.9}
+    lista = []
+    for i in dicionario:
+        lista.append(dicionario[i])
+    print(a.upper())
+    media_aritmetica(lista)
+    time.sleep(0.5)
+    mediana(lista)
+    time.sleep(0.5)
+    del dicionario['Canadá']
+    lista.pop()
+    print(b.upper())
+    media_aritmetica(lista)
+    time.sleep(0.5)
+    mediana(lista)
+    time.sleep(0.5)
+    respostab = 'A média foi mais afetada, pois um valor alto foi removido da lista de numeros. A mediana não sofre tanta alteração pois ela não sofre im impacto grande por remoção de um numero, já que é o termo do meio\n'
+    print(respostab)
+    dicionario = { 'México': 198.4, 'Japão': 65.7, 'Coreia do Sul': 43.4, 'Alemanha': 49.2, 'Taiwan': 25.9, 'Cingapura': 31.2, 'Holanda': 42.4, 'Franca': 27.8, 'Holanda': 42.4,
+    'China': 103.9, 'Brasil': 42.9, 'Belgica': 29.9, 'Austrália': 27.5, 'Malásia': 14.2, 'Italia': 16.0, 'Tailândia': 10.9, 'Suica': 24.4, 'Arábia Saudita': 13.8, 'Reino Unido':55.9, 'Canadá': 280.9, 'India': 21.5}
+    lista = []
+    for i in dicionario:
+        lista.append(dicionario[i])
+    print(c)
+    media_aritmetica(lista)
+    time.sleep(0.5)
+    mediana(lista)
+    time.sleep(0.5)
+    respostac = 'Foi a média. Mesmo aumentando um elemento, como esse elemento tem um valor baixo, a média é impactada e descresce.'
 
-Cingapura: 31,2
-25,9
-Franca: 278
-Holanda:
-42,4
-China:
-103,9 | Brasil:
-42,9
-_29_9
-Austrália: 275] Bélcica:-
-Malásia: 14,2 " Italia: 16.0
-1 Tailândia:__010.9
-24.4
-Suica:
-Arábia Saudita
-13.8}
+
+
+"""Rode as funções que as respostas estarão na tela."""
