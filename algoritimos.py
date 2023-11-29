@@ -17,7 +17,7 @@ Os dados são armazenados de forma contígua na memória (endereços sequenciais
 # Numpy oferece suporte a vetores em Python encapsulando-os em objetos da classe "ndarray" (signidica numero dimensão array, ou. um array multidimensional)
 # Como os dados são armazenados contiguamente, é preciso informar o tipo dos dados a ser guardado e sua quantidade.
 """Olhar o 'numpy_resumo.py' para construir vetores com o numpy"""
-#-------------------------------------ATIVIDADES DO PDF---------------------------------------
+#-------------------------------------ATIVIDADES DO PDF----------------------------------------------------------------------------------------------------
 
 # QUESTÕES PARA VETORES
 
@@ -192,6 +192,7 @@ def questão_4_matrizes_parte_5():
 # Por exemplo,  a questão_4_matrizes_parte_5() tem 2 for, ou seja, ela vai percorrer n^2 vezes. Então, é um algoritimo O(n^2)
 
 #--------------------------------------------LISTAS EM ALOCAÇÃO SEQUENCIAL----------------------------------------------------------------------------------------
+
 # É possível encontrar um elemento de forma aleatória no python através do seu índice. Por exemplo, i[n] irá retornar o [n-ésimo - 1] termo da lista de forma automática. Isso é O(1). 
 """ 1 - Dinamicamente Tipada:         Python permite criar listas sem declarar explicitamente os tipos dos elementos, facilitando a inclusão de diferentes tipos.
     2 - Alocação Dinâmica de Memória: A quantidade de memória necessária para armazenar elementos em uma lista é alocada dinamicamente, permitindo o crescimento ou a redução da lista conforme necessário.
@@ -206,14 +207,14 @@ def exemplo_de_referencia_do_ponteiro():
     print(outra_lista)
     lista = lista.append([4]) # Mesmo alterando só a primeira lista, como a segunda aponta para o mesmo lugar da primeira, a mudança terá efeito na segunda tambem. [1, 2, 3, [4]]
     print(outra_lista) 
-"""Duvida: como eu faço para dizer exatamente a complexidade de um algoritimo"""
 
 # ALGORITIMOS DE BUSCA EM UMA LISTA :
 
 """Alocação sequencial"""
+
 # Se para achar um elemento numa lista com seu indice é O(1), para achar o indice de um elemento numa lista a complexidade muda. 
 # Busca linear em lista em alocação sequencial
-def busca(lista, elem):
+def alocação_sequencial_busca_indice(lista, elem):
     """Retorna o índice elem se ele estiver na lista ou None, caso contrário"""
     for i in range(len(lista)): # Percorre a lista inteira (n)
         if lista[i] == elem:    # Percorre a lista inteira (n)
@@ -224,7 +225,7 @@ def exemplo_de_busca_num_lista():
     lista_estranha = [8, "5", 32, 0, "python", 11]
     print(f'Itens na lista: {lista_estranha}')
     elemento = input('digite um elemento: Ex: "python" ')
-    indice = busca(lista_estranha, elemento)
+    indice = alocação_sequencial_busca_indice(lista_estranha, elemento)
     if indice is not None:
         print("O índice do elemento {} é {}".format(elemento, indice))
     else:
@@ -235,7 +236,24 @@ def exemplo_de_busca_num_lista():
 # Inserção: O pior caso, é quando precisa ser inserido um elemento na primeira posição. Todos os elementos serão arrastados uma casa para a direita e o algoritimo precisará percorrer n-1 casas da lista.
 #           O melhor caso é para inserir na ultima posição, pois só precisará criar um espaço de memória.
 
+def alocação_sequencial_insercao_ultima_posicao(lista, elemento):
+    lista.append(elemento)
+    print(lista)
+    return lista
 
+def alocação_sequencial_insercao_primeira_posicao(lista):
+    elemento = input()
+    index = 0
+    lista.append('Qualquer coisa') # Insere-se qualquer coisa na ultima posição
+    lista[1 : len(lista)] = lista[:-1] # DUVIDA: Esse passo ainda vai ser dependente de N ?
+    lista[0] = elemento
+    print(lista)
+
+n = int(input())
+lista = []
+for i in range(1   , 10**n+11):
+    lista.append(i)
+alocação_sequencial_insercao_primeira_posicao(lista)
 
 # Remoção:  O pior caso, é quando precisa ser removido um elemento na ultima posição. O algoritimo precisará percorrer n-1 casas da lista.
 #           O melhor caso é para remover na primeira posição, pois só precisará remover um espaço de memória no inicio da lista.
@@ -249,7 +267,7 @@ def exemplo_de_busca_num_lista():
 
 
 
-#--------------------------------------------PILHAS---------------------------------------------------------------------------------------------
+#--------------------------------------------PILHAS-------------------------------------------------------------------------------------------------------
 
 
 """Conceito de Pilhas: Uma pilha é uma estrutura de dados linear que segue a ordem Last In, First Out (LIFO), 
@@ -282,7 +300,7 @@ Exercícios Práticos:
 
 Pilhas em Algoritmos e Estruturas de Dados:
 
-    Utilização de pilhas em algoritmos de busca em profundidade (DFS). 
+    Utilização de pilhas em algoritmos de busca em profundidade (DFS).
     Utilização de pilhas em algumas estruturas de dados avançadas, como a pilha de chamadas na recursão.
 
 Filas usando Duas Pilhas:
