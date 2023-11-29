@@ -282,7 +282,7 @@ Exercícios Práticos:
 
 Pilhas em Algoritmos e Estruturas de Dados:
 
-    Utilização de pilhas em algoritmos de busca em profundidade (DFS).
+    Utilização de pilhas em algoritmos de busca em profundidade (DFS). 
     Utilização de pilhas em algumas estruturas de dados avançadas, como a pilha de chamadas na recursão.
 
 Filas usando Duas Pilhas:
