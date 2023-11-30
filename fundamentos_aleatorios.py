@@ -1,5 +1,13 @@
 import random
-
+def remover_ocorrencias_de_elementos_numa_lista(lista):
+    # exemplo com 0
+    lista = list(lista)
+    for elemento in lista:
+        if elemento == 0:
+            lista.append(0)
+            lista.remove(elemento)
+    print('a')
+    print(lista)
 # Contar numeros num array
 def encontrar_elemento_unico(lista):
     contador = {}
@@ -60,7 +68,6 @@ def reverseee(lista):
             fim -= 1
         return nums"""
 list = [1,2,3,4,5,6,7,8,9,10]
-list.reverse()
 
 def confere_inversao(n, m):
     """Checa o resultado da função `inverte` em n listas de tamanho m geradas aleatoriamente."""
