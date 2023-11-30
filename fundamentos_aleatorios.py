@@ -77,6 +77,3 @@ def confere_inversao(n, m):
         # Invoca nosso algoritmo para inverter nums2 e confere o resultado.
         if reverseee(nums2) == nums1:
             print("Sucesso!")
-
-# Checa o resultado do nosso algoritmo em 500 listas geradas aleatoriamente.
-confere_inversao(10, 10)
