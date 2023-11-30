@@ -1,6 +1,6 @@
 import numpy as np
 #As anotações são baseadas na disciplina de algoritimos do CIn-UFPE do curso de SI
-    
+
 #DEFINIÇÃO: um algoritmo é uma sequência de passos computacionais que transformam a ENTRADA na SAÍDA. 
 #Também podemos visualizar um aigoritmo como uma ferramenta para resolver umproblema computacional bem especificado
 
@@ -198,6 +198,9 @@ def questão_4_matrizes_parte_5():
     2 - Alocação Dinâmica de Memória: A quantidade de memória necessária para armazenar elementos em uma lista é alocada dinamicamente, permitindo o crescimento ou a redução da lista conforme necessário.
     3 - Objetos Referenciados:        Os elementos de uma lista são referências a objetos, não os próprios objetos, proporcionando flexibilidade para lidar com tipos diferentes.
     4 - Tamanho Dinâmico:             O tamanho de uma lista pode ser alterado durante a execução do programa, permitindo adição ou remoção de elementos de forma flexível."""
+
+# ATENÇÃO: Listas em Python são listas encadeadas, e como tal, elas podem armazenar elementos de tipos diferentes, que não necessariamente estão em posições contíguas de memória, e não possuem tamanho fixo.
+
 # Tópico 3 é um ponteiro. Em Python, as listas guardam um endereço (ponteiro) de onde está o objeto.
 def exemplo_de_referencia_do_ponteiro():
     """Exemplo"""
@@ -211,6 +214,7 @@ def exemplo_de_referencia_do_ponteiro():
 # ALGORITIMOS DE BUSCA EM UMA LISTA :
 
 """Alocação sequencial"""
+
 
 # Se para achar um elemento numa lista com seu indice é O(1), para achar o indice de um elemento numa lista a complexidade muda. 
 # Busca linear em lista em alocação sequencial
@@ -247,21 +251,33 @@ def alocação_sequencial_insercao_primeira_posicao(lista):
     lista.append('Qualquer coisa') # Insere-se qualquer coisa na ultima posição
     lista[1 : len(lista)] = lista[:-1] # DUVIDA: Esse passo ainda vai ser dependente de N ?
     lista[0] = elemento
-    print(lista)
-
-n = int(input())
-lista = []
-for i in range(1   , 10**n+11):
-    lista.append(i)
-alocação_sequencial_insercao_primeira_posicao(lista)
-
+    return lista
 # Remoção:  O pior caso, é quando precisa ser removido um elemento na ultima posição. O algoritimo precisará percorrer n-1 casas da lista.
 #           O melhor caso é para remover na primeira posição, pois só precisará remover um espaço de memória no inicio da lista.
 
+def alocação_sequencial_remoção_ultima_posicao(lista):
+    lista.pop()
+    return lista
+
+def alocação_sequencial_remoção_primeira_posicao(lista):
+    lista.pop(0)
+    return lista
+
+"""Alocação encadeada"""
 
 
+# Na sequencial, precisa-se reservar um espaço pré definido de memória e a partir da inserção ou remorção poder ser feito o reajuste da memória.
+# A alocação dinâmica, permite que os dados sejam armazenados em locais quaisquer da memória e esses espaços serão alocados nomento que for preciso armazenar um novo elemento.
 
+# Uma lista encadeada é uma sequência de nós, um ligado ao outro, de forma que um nó sabe quem é o próximo nó.
+# Basta saber o primeiro nó e todos os outros serão sabidos.
 
+# Em uma lista encadeada, um nó é uma estrutura que contém um valor e uma referência (ou ponteiro) para o próximo nó na sequência. Cada nó é independente e possui uma referência ao próximo nó na lista.
+"""EXEMPLO DE NÓ"""
+class Node:
+    def __init__(self, data): # Precisa ser inserido apenas o primeiro dado
+        self.data = data
+        self.next = None      # "next" é a informação para o próximo dado, iniciado com vazio
 
 
 
