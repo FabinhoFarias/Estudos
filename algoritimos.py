@@ -1,6 +1,6 @@
 import numpy as np
 #As anotações são baseadas na disciplina de algoritimos do CIn-UFPE do curso de SI
-
+    
 #DEFINIÇÃO: um algoritmo é uma sequência de passos computacionais que transformam a ENTRADA na SAÍDA. 
 #Também podemos visualizar um aigoritmo como uma ferramenta para resolver umproblema computacional bem especificado
 
