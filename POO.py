@@ -4,7 +4,7 @@
 # Podem ser de 2 tipos: PRIMITIVOS: São variáveis, floots, int...
 #                       COMPOSTOS: Listas, dicionários, classes...
 
-
+     
 #Objeto = Classe
 
 #O objeto tem métodos (ações) e atributos (informações)
