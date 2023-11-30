@@ -279,6 +279,72 @@ class Node:
         self.data = data
         self.next = None      # "next" é a informação para o próximo dado, iniciado com vazio
 
+"""CONSTRUÇÃO DE UMA LISTA ENCADEADA"""
+
+# Embora uma lista encadeada tenha uma construção diferente, ela ainda é uma lista. Ou seja, é necessário que haja métodos que listas normais tenham. As diferenças entre ambas é a complexidade, mas a interface precisa ser a mesma.
+# append, pop, remove, printar um elemento de uma posição específica dado um index são exemplos do que precisa ser feito. 
+
+class Lista_encadeada:
+    def __init__(self):
+        self.primeiro_elemento = None # Essa lista sempre começa vazia ( lista = [] )
+        self._len = 0                  # Como começa vazia, seu tamanho é 0
+    
+    def __len__(self): # Essa assinatura __len__(self) com  2 _ significa que é uma função especial
+        return self._len
+
+    def append(self, elemento):       # Esse método vai se comportar como o append numa lista normal.
+        if self.primeiro_elemento:# Quando já há alguém na primeira posição   
+            ponteiro = self.primeiro_elemento # Esse ponteiro vai assumir o primeiro elemento da lista
+            while ponteiro.next:              # O loop vai verificar se há alguem na próxima posição
+                ponteiro = ponteiro.next      # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
+            ponteiro.next = Node(elemento)    # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
+            self._len += 1 # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
+        else: # Quando não há alguém na primeira posição
+            self.primeiro_elemento = Node(elemento) # Cria-se o primeiro nó e o elemento será inserido na lista
+    
+    def print(self, index):
+        if self.primeiro_elemento:
+            ponteiro = self.primeiro_elemento 
+            for elemento in range(index):
+                ponteiro = ponteiro.next
+            print(ponteiro)
+        
+
+lista = Lista_encadeada()
+lista.append(9)
+lista.append(6)
+lista.append(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
