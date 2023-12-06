@@ -286,7 +286,7 @@ class Node:
 class Lista_Encadeada:
     def __init__(self):
         self._primeiro_elemento = None  # Essa lista sempre começa vazia ( lista = [] )
-        self._len = 0                  # Como começa vazia, seu tamanho é 0
+        self._len = 0                   # Como começa vazia, seu tamanho é 0
     
     def __len__(self):  # Essa assinatura __len__(self) com  2 _ significa que é uma função especial
         return self._len
@@ -305,7 +305,6 @@ class Lista_Encadeada:
     def insert(self, elemento, index=None):
         if elemento is None:  # Caso o primeiro elemento não exista
             raise ValueError("Elemento não pode ser None")
-        
         elif index is not None:  # Caso especifique o index
             if self._primeiro_elemento:
                 if index > self._len - 1:  # Caso o index seja maior que o tamanho da lista, vai inserir na última posição
@@ -314,7 +313,6 @@ class Lista_Encadeada:
                         ponteiro = ponteiro.next  # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
                     ponteiro.next = Node(elemento)  # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
                     self._len += 1  # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
-                    
                 else:
                     ponteiro = self._primeiro_elemento
                     for i in range(index - 1):  # Ajustado para começar do índice 0
@@ -323,7 +321,6 @@ class Lista_Encadeada:
                     novo_no.next = ponteiro.next
                     ponteiro.next = novo_no
                     self._len += 1
-
             else:  # Caso esteja vazia, cria-se o primeiro nó
                 self._primeiro_elemento = Node(elemento)  # Cria-se o primeiro nó e o elemento será inserido na lista
                 self._len += 1
@@ -353,28 +350,40 @@ class Lista_Encadeada:
                 lista.append(ponteiro.data)
                 ponteiro = ponteiro.next
             print(lista)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def pop(self, elemento=None, index=None):
+        if self._primeiro_elemento:
+            if elemento is None and index is None:
+                if self._len == 1:  # Se há apenas um elemento na lista
+                    popped_data = self._primeiro_elemento.data
+                    self._primeiro_elemento = None
+                    self._len -= 1
+                    return popped_data
+                else:
+                    ponteiro = self._primeiro_elemento
+                    for i in range(self._len - 2):  # Alterado para -2
+                        ponteiro = ponteiro.next
+                    popped_data = ponteiro.next.data
+                    ponteiro.next = None
+                    self._len -= 1
+                    return popped_data
+            elif index is not None:
+                if index >= self._len or index < 0:
+                    raise IndexError("Index out of range")
+                if index == 0:  # Remover o primeiro elemento
+                    popped_data = self._primeiro_elemento.data
+                    self._primeiro_elemento = self._primeiro_elemento.next
+                    self._len -= 1
+                    return popped_data
+                else:
+                    ponteiro = self._primeiro_elemento
+                    for i in range(index - 1):
+                        ponteiro = ponteiro.next
+                    popped_data = ponteiro.next.data
+                    ponteiro.next = ponteiro.next.next
+                    self._len -= 1
+                    return popped_data
+        else:
+            raise IndexError("Pop from an empty list")
 
 
 
