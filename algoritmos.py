@@ -425,3 +425,40 @@ class Pilha:
         self.topo = self.topo.anterior
 
 #--------------------------------------------ÁRVORES-------------------------------------------------------------------------------------------------------
+
+
+class Node_tree:
+    def __init__(self, valor):
+        self.valor = valor
+        self.pai = None
+        self.direita = None
+        self.esquerda = None
+
+class Arvore:
+    def __init__(self):
+        self.raiz = None
+
+    def inserir(self, valor):
+        item = Node(valor)
+
+        if self.raiz == None:
+            self.raiz = item
+        
+        else:
+            adicionado = False
+            itemAtual = self.raiz
+            while not adicionado:
+                if itemAtual.valor < item.valor:
+                    if itemAtual.direita == None:
+                        itemAtual.direita = item
+                        item.pai = itemAtual
+                        adicionado = True
+                    else:
+                        itemAtual = itemAtual.direita
+                else:
+                    if itemAtual.esquerda == None:
+                        itemAtual.esquerda = item
+                        item.pai = itemAtual
+                        adicionado = True
+                    else:
+                        itemAtual = itemAtual.esquerda
