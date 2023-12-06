@@ -403,40 +403,25 @@ class Lista_Encadeada:
                                 Pop:         Remover o elemento do topo da pilha.
                                 Peek ou Top: Visualizar o elemento no topo da pilha sem removê-lo."""
 
-"""Implementação de Pilhas em Python:
+class Nodo_pilha: # Nova classe de nó para usar na pilha, pois vai ter um topo e um anterior
+    """Esta classe representa um nodo de uma estrutura encadeada."""
+    def __init__(self, dado=0, nodo_anterior=None):
+        self.dado = dado
+        self.anterior = nodo_anterior
+        
+class Pilha:
+    """Esta classe representa uma pilha usando uma estrutura encadeada."""
+    def __init__(self):
+        self.topo = None
+    def insere(self, novo_dado):
+        """Insere um elemento no final da pilha."""
+        novo_nodo = Nodo_pilha(novo_dado) # Cria um novo nodo com o dado a ser armazenado.
+        novo_nodo.anterior = self.topo    # Faz com que o novo nodo seja o topo da pilha.
+        self.topo = novo_nodo             # Faz com que a cabeça da lista referencie o novo nodo.
 
-    Usando listas nativas do Python.
-    Criando uma classe de pilha personalizada."""
+    def remove(self):
+        """Remove o elemento que está no topo da pilha."""
+        assert self.topo, "Impossível remover valor de pilha vazia."
+        self.topo = self.topo.anterior
 
-"""
-Aplicações de Pilhas:
-
-    Avaliação de expressões aritméticas (usando a notação polonesa reversa).
-    Rastreamento de chamadas de funções (retornos).
-    Desfazer operações em editores de texto.
-
-Exercícios Práticos:
-
-    Implementar algoritmos que envolvem o uso de pilhas.
-    Resolver problemas que podem ser abordados eficientemente com pilhas.
-
-Pilhas em Algoritmos e Estruturas de Dados:
-
-    Utilização de pilhas em algoritmos de busca em profundidade (DFS).
-    Utilização de pilhas em algumas estruturas de dados avançadas, como a pilha de chamadas na recursão.
-
-Filas usando Duas Pilhas:
-    Implementar uma fila usando duas pilhas.
-
-Bibliotecas em Python:
-
-    Conhecer as bibliotecas ou módulos relacionados a pilhas, como collections.deque.
-
-Projetos Práticos:
-
-    Implementar um projeto prático que envolva o uso de pilhas, como um sistema de verificação de parênteses em expressões matemáticas.
-
-Complexidade de Tempo em Operações de Pilhas:
-
-    Compreender a complexidade de tempo das operações básicas em pilhas.
-"""
+#--------------------------------------------ÁRVORES-------------------------------------------------------------------------------------------------------
