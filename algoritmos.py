@@ -286,41 +286,75 @@ class Node:
 
 class Lista_encadeada:
     def __init__(self):
-        self.primeiro_elemento = None # Essa lista sempre começa vazia ( lista = [] )
+        self.primeiro_elemento = None  # Essa lista sempre começa vazia ( lista = [] )
         self._len = 0                  # Como começa vazia, seu tamanho é 0
     
-    def __len__(self): # Essa assinatura __len__(self) com  2 _ significa que é uma função especial
+    def __len__(self):  # Essa assinatura __len__(self) com  2 _ significa que é uma função especial
         return self._len
 
     def append(self, elemento):       # Esse método vai se comportar como o append numa lista normal.
-        if self.primeiro_elemento:# Quando já há alguém na primeira posição   
-            ponteiro = self.primeiro_elemento # Esse ponteiro vai assumir o primeiro elemento da lista
-            while ponteiro.next:              # O loop vai verificar se há alguem na próxima posição
-                ponteiro = ponteiro.next      # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
-            ponteiro.next = Node(elemento)    # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
-            self._len += 1 # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
-        else: # Quando não há alguém na primeira posição
-            self.primeiro_elemento = Node(elemento) # Cria-se o primeiro nó e o elemento será inserido na lista
-    
-    def print(self, index):
-        if self.primeiro_elemento:
-            ponteiro = self.primeiro_elemento 
-            for elemento in range(index):
+        if self.primeiro_elemento:  # Quando já há alguém na primeira posição   
+            ponteiro = self.primeiro_elemento  # Esse ponteiro vai assumir o primeiro elemento da lista
+            while ponteiro.next:  # O loop vai verificar se há alguém na próxima posição
+                ponteiro = ponteiro.next  # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
+            ponteiro.next = Node(elemento)  # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
+            self._len += 1  # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
+        else:  # Quando não há alguém na primeira posição
+            self.primeiro_elemento = Node(elemento)  # Cria-se o primeiro nó e o elemento será inserido na lista
+            self._len += 1
+
+    def insert(self, elemento, index=None):
+        if elemento == None:
+            raise IndexError("Index out of range")
+        elif index != None:
+            if self.primeiro_elemento:
+                if index > self._len - 1: # Vai inserir na ultima posição
+                    ponteiro = self.primeiro_elemento  # Esse ponteiro vai assumir o primeiro elemento da lista
+                    while ponteiro.next:  # O loop vai verificar se há alguém na próxima posição
+                        ponteiro = ponteiro.next  # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
+                    ponteiro.next = Node(elemento)  # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
+                    self._len += 1  # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
+                
+                else:
+            else: # Caso esteja vazia cria-se o primeiro nó
+                self.primeiro_elemento = Node(elemento)  # Cria-se o primeiro nó e o elemento será inserido na lista
+                self._len += 1
+        else: # Vai repetir a função append
+            if self.primeiro_elemento:  # Quando já há alguém na primeira posição   
+                ponteiro = self.primeiro_elemento  # Esse ponteiro vai assumir o primeiro elemento da lista
+                while ponteiro.next:  # O loop vai verificar se há alguém na próxima posição
+                    ponteiro = ponteiro.next  # Se houver, o ponteiro é atualizado para o próximo elemento e o loop vai ser processado até que haja um None
+                ponteiro.next = Node(elemento)  # Quando o loop parar e for None, cria-se um novo nó com o elemento passado como parâmetro da função.
+                self._len += 1  # Recebe mais um no tamanho, pois foi adicionado um novo elemento na lista
+            else:  # Quando não há alguém na primeira posição
+                self.primeiro_elemento = Node(elemento)  # Cria-se o primeiro nó e o elemento será inserido na lista
+                self._len += 1
+                
+
+    def print(self, index=None):
+        if index is not None: # Se index não for vazio ele printa um elemento específico
+            if (int(index) >= self._len) or (int(index) < 0):
+                raise IndexError("Index out of range")
+            ponteiro = self.primeiro_elemento
+            for i in range(index):
                 ponteiro = ponteiro.next
-            print(ponteiro)
-        
+            print(ponteiro.data)
+        else:                 # Se for None, vai printar a lista toda. O(n)
+            lista = []
+            ponteiro = self.primeiro_elemento
+            while ponteiro:
+                lista.append(ponteiro.data)
+                ponteiro = ponteiro.next
+            print(lista)
+
 
 lista = Lista_encadeada()
 lista.append(9)
 lista.append(6)
 lista.append(3)
 
-
-
-
-
-
-
+lista.print(2)
+lista.print()
 
 
 
