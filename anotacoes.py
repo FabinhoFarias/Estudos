@@ -52,3 +52,6 @@ if __name__ == "__main__":
 # Tipos abstratos de dados: é um "contrato" de como vai ser usado aquele dado
 
 # Pesquisar dados vazios em python 
+#terminar as anotações do numpy e depois checar o material do classroom para complementar 
+link = 'https://www.youtube.com/watch?v=-KdGmnEcC4k' 
+musica de rock das antigas
