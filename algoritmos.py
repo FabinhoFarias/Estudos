@@ -426,6 +426,12 @@ class Pilha:
 
 #--------------------------------------------ÁRVORES-------------------------------------------------------------------------------------------------------
 
+""" Árvores são estruturas de dados hierárquicas. Basicamente, árvores são formadas por um conjunto de elementos, os quais chamamos nodos (ou vértices) 
+    conectados de forma específica por um conjunto de arestas. Um dos nodos, que dizemos estar no nível 0, é a raiz da árvore, e está no topo da hierarquia. 
+    A raiz está conectada a outros nodos, que estão no nível 1, que por sua vez estão conectados a outros nodos, no nível 2, e assim por diante."""
+
+
+
 
 class Node_tree:
     def __init__(self, valor):
@@ -462,3 +468,27 @@ class Arvore:
                         adicionado = True
                     else:
                         itemAtual = itemAtual.esquerda
+"""Inserção de Nós:
+
+Adiciona um novo nó à árvore.
+Remoção de Nós:
+
+Remove um nó específico da árvore.
+Busca de Nós:
+
+Procura por um valor específico na árvore.
+Traversals (Percurso):
+
+Permite percorrer todos os nós da árvore em uma determinada ordem (in-order, pre-order, post-order).
+Altura da Árvore:
+
+Calcula a altura da árvore.
+Número de Nós:
+
+Conta o número total de nós na árvore.
+Mínimo e Máximo:
+
+Encontra o valor mínimo e máximo na árvore.
+Verificação se está Vazia:
+
+Verifica se a árvore está vazia."""
