@@ -55,3 +55,78 @@ if __name__ == "__main__":
 #terminar as anotações do numpy e depois checar o material do classroom para complementar 
 link = 'https://www.youtube.com/watch?v=-KdGmnEcC4k' 
 musica de rock das antigas
+
+
+class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.pai = None
+        self.direita = None
+        self.esquerda = None
+
+class MaxHeap:
+    def __init__(self):
+        self.raiz = None
+
+    def inserir(self, valor):
+        item = Node(int(valor))  # Convert valor to an integer
+
+        if self.raiz is None:
+            self.raiz = item
+        else:
+            self._inserir_recursivo(self.raiz, item)
+
+    def _inserir_recursivo(self, node, novo_item):
+        if node.esquerda is None:
+            node.esquerda = novo_item
+            novo_item.pai = node
+            self._sobe_heap(novo_item)
+        elif node.direita is None:
+            node.direita = novo_item
+            novo_item.pai = node
+            self._sobe_heap(novo_item)
+        else:
+            # Escolhe o lado com menos elementos para manter a propriedade de árvore completa
+            if self._altura(node.esquerda) <= self._altura(node.direita):
+                self._inserir_recursivo(node.esquerda, novo_item)
+            else:
+                self._inserir_recursivo(node.direita, novo_item)
+
+    def _sobe_heap(self, node):
+        while node.pai is not None and node.pai.valor < node.valor:
+            node.pai.valor, node.valor = node.valor, node.pai.valor
+            node = node.pai
+
+    def _altura(self, node):
+        if node is None:
+            return 0
+        return 1 + max(self._altura(node.esquerda), self._altura(node.direita))
+
+    def percorre(self, node, lista):
+        if node:
+            self.percorre(node.esquerda, lista)
+            lista.append(node.valor)
+            self.percorre(node.direita, lista)
+
+# Exemplo de uso:
+heap = MaxHeap()
+lista = input().split(',')
+listaaa = []
+for i in lista:
+    heap.inserir(i)
+
+heap.percorre(heap.raiz, listaaa)
+for i in listaaa:
+    if i != listaaa[-1]:
+        print(i, end= ' ')
+    else:
+        print(i)
+primeiro_elemento = heap.raiz.valor
+segundo_valor = 0
+if heap.raiz.direita.valor > heap.raiz.esquerda.valor:
+    segundo_valor = heap.raiz.direita.valor
+elif heap.raiz.direita.valor < heap.raiz.esquerda.valor:
+    segundo_valor = heap.raiz.esquerda.valor
+else:
+    segundo_valor = heap.raiz.direita.valor
+print(f'R${primeiro_elemento*segundo_valor}')
