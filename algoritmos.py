@@ -10,7 +10,7 @@ Em Python, listas são estruturas nativas que permitem o armazenamento sequencia
 Vetores, matrizes e tensores são alternativas a listas para armazenamento de múltiplos valores de mesmo tipo (estruturas homogêneas)
 Os dados são armazenados de forma contígua na memória (endereços sequenciais para blocos de mesmo tamanho), permitem indexar os elementos de forma direta (o que é mais eficiente de que em listas)
 """
-
+  
 # ----------------------------------------------------VETORES ---------------------------------------------------------------------------------------------
 
 # Vetores são estruturas UNIDIMENSIONAIS que armazenam elementos de um mesmo tipo.
