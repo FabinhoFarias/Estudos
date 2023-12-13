@@ -5,7 +5,7 @@ print(resultados)
 #integrar com o arquivo exel 
 #copiar questoes
 #colar questoes na planilha
-#copiar gabarito
+#copiar gabarito 
 #colar gabarito na planilha 
 #copiar ano
 #colar ano na planilha
