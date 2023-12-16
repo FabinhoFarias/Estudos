@@ -130,3 +130,58 @@ elif heap.raiz.direita.valor < heap.raiz.esquerda.valor:
 else:
     segundo_valor = heap.raiz.direita.valor
 print(f'R${primeiro_elemento*segundo_valor}')
+
+
+# QUESTÃO TABELA HASH DIKASTIS
+
+class Node:
+    def __init__(self, dado):
+        self.dado = dado
+        self.indice_do_dado_na_lista = None
+
+def separar_grupos(string):
+    string = str(string)
+    grupos = []
+    lista_aux = []
+    for i in string:
+        if i not in lista_aux:
+            lista_aux.append(i) 
+        else: 
+            grupos.append(Node(lista_aux))
+            lista_aux = []
+            lista_aux.append(i)
+    if lista_aux not in grupos and lista_aux != []:
+        grupos.append(Node(lista_aux))
+    return grupos
+
+def calculo_posicao_do_grupo_por_tabela_ascii(grupos): # Essa função vai fazer o calculo do numero na tabela e vai calcular o resto
+    # TRECHO O(n²)
+    for no in grupos:
+        grupo = no.dado
+        numero_ascii_grupo = 0
+        for letra in grupo:
+            numero_ascii_grupo += ord(letra)
+        no.indice_do_dado_na_lista = numero_ascii_grupo % 10
+
+def alocação_grupo(grupo, agenda_shifu): # Vai corrigir as colisões
+    posicao_na_lista = grupo.indice_do_dado_na_lista
+
+    while agenda_shifu[posicao_na_lista] != 'vago':
+        posicao_na_lista = (posicao_na_lista + 1) % 10
+
+    agenda_shifu[posicao_na_lista] = grupo.dado
+
+#separar grupos
+string = str(input())
+grupos = separar_grupos(string)
+
+#cria a agenda
+agenda_shifu = [ 'vago' for i in range(10) ] 
+
+# Vai calcular os numeros e suposta posição dos grupos
+calculo_posicao_do_grupo_por_tabela_ascii(grupos) 
+
+# colocação dos grupos nos lugares devidos
+for grupo in grupos:
+    alocação_grupo(grupo, agenda_shifu) 
+print(agenda_shifu) #finish
