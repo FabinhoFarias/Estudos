@@ -85,30 +85,53 @@ def tabela_de_frequencia(lista):
         print(f'---- {elemento[i]} --------------- {frequencia[i]} ----')
         time.sleep(0.3)
 
-def tabela_de_frequencia_classes(lista):
-    nummero_de_classes = 5
+def tabela_de_frequencia_classes(lista, numero_de_classes=None):
+    if numero_de_classes is None:
+        if len(lista) <= 25:
+            numero_de_classes = 5
+        else:
+            numero_de_classes = int(len(lista) ** (1/2))
     lista.sort()
     maximo = max(lista)
     minimo = min(lista)
-    amplitude_classe = (maximo - minimo) / nummero_de_classes
+    amplitude_classe = -(-((maximo - minimo) / numero_de_classes)//1)
     elementos = []
     frequencias = []
+    percentuais_acumulados = []
+    frequencias_relativas = []
+    frequencias_acumuladas = []
+    percentuais_acumulados_percentuais = []
     limites_classes = []
     limite_inferior = min(lista)
-    for i in range(nummero_de_classes):
+    total_elementos = len(lista)
+    acumulado = 0
+    percentual_acumulado = 0
+    frequencia_acumulada = 0
+    for i in range(numero_de_classes):
         limite_superior = limite_inferior + amplitude_classe
         frequencia = sum(limite_inferior <= elemento < limite_superior for elemento in lista)
-        elementos.append(f'{limite_inferior:.2f}-{limite_superior:.2f}')
+        percentual = (frequencia / total_elementos) * 100
+        acumulado += percentual
+        acumulado = round(percentual, 2)
+        frequencia_relativa = round((frequencia / total_elementos), 3)
+        frequencia_acumulada += frequencia
+        percentual_acumulado += acumulado
+        elementos.append(f'{limite_inferior:.2f} |-- {limite_superior:.2f}')
         frequencias.append(frequencia)
+        percentuais_acumulados.append(f'{acumulado}%')
+        frequencias_relativas.append(frequencia_relativa)
+        frequencias_acumuladas.append(frequencia_acumulada)
+        percentuais_acumulados_percentuais.append(round(percentual_acumulado, 2))
         limites_classes.append((limite_inferior, limite_superior))
         limite_inferior = limite_superior
-
     print('----- TABELA DE FREQUÊNCIA -----\n')
-    print(f'{"Classe": <20} {"Frequência":}')
-    print('-' * 32)
-    for i in range(nummero_de_classes):
-        print(f'{elementos[i]: <20} {frequencias[i]:}')
+    print(f'{"     Classe": <20} {"Frequência Simples(fi)": <25} {"Percentual Acumulado(fri%)": <30} {"Frequência Relativa(fri)": <30} {"Frequência Acumulada(Fi)": <28} {"Percentual Acumulado(Fi%)":}')
+    print('-' * 159)
+    for i in range(numero_de_classes):
+        print(f'{elementos[i]: <30} {frequencias[i]: <24} {percentuais_acumulados[i]:<30} {frequencias_relativas[i]:<32} {frequencias_acumuladas[i]: <26} {percentuais_acumulados_percentuais[i]:<10}')
         time.sleep(0.3)
+
+
 
 def quartil(n, lista):
     lista = np.array(lista)
@@ -202,8 +225,7 @@ def questao5():
     print(f'Média: {media}')
     time.sleep(1.0)
     moda(lista)
-    tabela_de_frequencia(lista)
-
+    tabela_de_frequencia_classes(lista)
 def questao6():
     resposta = 'Utilizando a fórmula (31,36 = 30 + [(300/2 - 142)/X] * 9), encontramos que X é aproximadamente igual a 53.'
     resposta2 = 'Somamos as frequências acumuladas até o momento (44 + 66 + 32 + X + 35 + 31) e subtraiamos esse total da população total conhecida (300). O resultado é Y, aproximadamente igual a 23.'
@@ -300,7 +322,4 @@ def questao10():
     mediana(lista)
     time.sleep(0.5)
     respostac = 'Foi a média. Mesmo aumentando um elemento, como esse elemento tem um valor baixo, a média é impactada e descresce.'
-
-
-
 """Rode as funções que as respostas estarão na tela."""
