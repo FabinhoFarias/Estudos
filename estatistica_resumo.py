@@ -323,3 +323,34 @@ def questao10():
     time.sleep(0.5)
     respostac = 'Foi a média. Mesmo aumentando um elemento, como esse elemento tem um valor baixo, a média é impactada e descresce.'
 """Rode as funções que as respostas estarão na tela."""
+
+
+
+
+
+
+
+
+
+
+
+# Experimento de probabilidade: é uma ação, ou tentativa, pela qual resultados específicos (contagens, medições ou respostas) são obtidos.
+# Resultado:                    única tentativa em um experimento de probabilidade.
+# Espaço amostral:              grupo de todos os resultados possíveis de um experimento de probabilidade. Representa o conjunto de todos os possíveis resultados de um experimento
+# Evento:                       subgrupo do espaço amostral. É um conjunto de resultado do espaço amostral.
+
+""" EXEMPLOS """
+# Lançamento de um dado: Ω= {1, 2, 3, 4, 5, 6}. ----->> Quantitativo discreto
+
+# Observação dos momentos de entrada de clientes em uma loja, entre as 14 e 16 horas: Ω= {(X,Y): 14< x < 16} ----->> Quantitativo contínuo
+
+import time
+
+import csv
+caminho = "H:\Códigos\Python\Estatística\Resultados_simulado.csv"
+
+with open(caminho) as csv_file:
+
+    csv_reader = csv.DictReader(csv_file, 'r')
+
+    csv_reader.__next__()
