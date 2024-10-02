@@ -164,6 +164,29 @@ def grafico_em_escala():
     plt.grid()
     plt.show()
 
+def grafico_de_barras(rótulos, valores, título='Gráfico de Barras', xlabel='Categorias', ylabel='Valores'):
+    """
+    Cria um gráfico de barras.
+
+    Parâmetros:
+    rótulos (list): Lista de rótulos para as barras.
+    valores (list): Lista de valores correspondentes aos rótulos.
+    título (str): Título do gráfico.
+    xlabel (str): Nome do eixo x.
+    ylabel (str): Nome do eixo y.
+    """
+    
+    plt.bar(rótulos, valores, color='skyblue')
+    plt.title(título)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.grid(axis='y')
+    plt.show()
+    # Exemplo de uso da função
+    # rótulos = ['Categoria A', 'Categoria B', 'Categoria C', 'Categoria D']
+    # valores = [10, 15, 7, 12]
+    # grafico_de_barras(rótulos, valores)
+
 
 #-----------------------------------------------------------------COLOCANDO MAIS DE UM GRÁFICO EM UMA FIGURA-------------------------------------------------------------------------------------
 
