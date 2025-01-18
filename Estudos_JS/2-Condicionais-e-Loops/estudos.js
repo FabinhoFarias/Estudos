@@ -1,6 +1,6 @@
-// 1 - ESTRUTURA DA LINGUAGEM
+// 1 - CONCICIONAIS E LOOPS
 
-// 1.1 - If -------------------------------------------------------------------------------------------------------------------------------------------------
+// 2.1 - If -------------------------------------------------------------------------------------------------------------------------------------------------
 
 /* O "if" é uma estrutura condicional que permite executar blocos de código
 diferentes dependendo de uma condição especificada. 
@@ -66,7 +66,7 @@ if (temCarteira && temIdadeMinima) {
     console.log("Você não pode dirigir.");
 }
 
-// 1.2 - While -------------------------------------------------------------------------------------------------------------------------------------------------
+// 2.2 - While -------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*O laço "while" é usado para repetir um bloco de código enquanto uma condição especificada for verdadeira.
 Ele verifica a condição antes de executar o bloco de código, ou seja, é um laço de controle baseado em condição.
@@ -192,7 +192,7 @@ Observações importantes:
 3. É possível usar "break" para sair de um loop antecipadamente e "continue" para pular para a próxima iteração.
 */
 
-// 1.4 - Switch -------------------------------------------------------------------------------------------------------------------------------------------------
+// 2.4 - Switch -------------------------------------------------------------------------------------------------------------------------------------------------
 
 /**
  * O switch é uma estrutura de controle condicional usada para comparar um valor
@@ -269,7 +269,7 @@ switch (fruta) {
 }
 
 
-// 1.5 - Do While -------------------------------------------------------------------------------------------------------------------------------------------------
+// 2.5 - Do While -------------------------------------------------------------------------------------------------------------------------------------------------
 
 /* 
 O laço "do...while" é uma estrutura de repetição em JavaScript. 
@@ -311,4 +311,3 @@ Vantagens do "do...while":
 - Útil quando você precisa garantir que o bloco de código execute pelo menos uma vez.
 - Boa escolha para processos que requerem uma ação inicial antes da verificação da condição.
 */
-
