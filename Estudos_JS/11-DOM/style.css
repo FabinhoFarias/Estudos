@@ -1,0 +1,126 @@
+/* Reset básico */
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo principal */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #F40009;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.822) 25%, rgba(253,29,29,1) 48%, rgba(252,30,30,1) 75%, #f40008cb 100%);;
+    height: 10vh;
+    width: 100%;
+    display: flex; /* Para usar flexbox */
+    align-items: center; /* Centraliza verticalmente os itens */
+    position: relative; /* Necessário para posicionar o menu suspenso */
+}
+
+/* Menu do header */
+#Menu {
+    display: flex; /* Para alinhar os elementos dentro do menu */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    justify-content: center; /* Centraliza verticalmente no menu */
+    align-items: flex-start; /* Alinha à esquerda */
+    margin-left: 20px; /* Adiciona espaçamento da borda esquerda */
+    gap: 5px;
+    cursor: pointer; /* Indica que é clicável */
+}
+
+/* Estilos das barras do menu */
+#Menu div {
+    height: 7px;
+    width: 40px;
+    border-radius: 3px;
+    background-color: black;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animação suave */
+}
+
+/* Estilos para o estado ativo do menu */
+#Menu.ativo div:nth-child(1), 
+#Menu.ativo div:nth-child(3) {
+    transform-origin: center; /* Define o ponto de rotação no centro */
+}
+
+/* Estilos para o estado ativo do menu */
+#Menu.ativo div:nth-child(1) {
+    transform: translateY(6px) rotate(45deg); /* Move e gira a barra superior */
+}
+
+#Menu.ativo div:nth-child(2) {
+    display: none; /* Torna a barra do meio invisível */
+}
+
+#Menu.ativo div:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg); /* Move e gira a barra inferior */
+}
+
+/* Lista suspensa de itens */
+.Lista-Itens {
+    display: none; /* Esconde os itens inicialmente */
+    position: absolute;
+    top: 10vh; /* Posiciona abaixo do header */
+    left: 0;
+    width: auto;
+    background-color: #ee0000d7;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Invisível inicialmente */
+    transform: translateY(-10px); /* Move para cima */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
+    pointer-events: none; /* Impede interação enquanto invisível */
+}
+
+/* Estilo para a lista suspensa quando ativa */
+.Lista-Itens.ativo {
+    display: flex; /* Mostra os itens quando o menu está ativo */
+    flex-direction: column;
+    align-items: center;
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Retorna à posição original */
+    pointer-events: auto; /* Permite interação */
+}
+
+/* Links dentro da lista */
+.Lista-Itens a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: color 0.3s ease; /* Animação suave para o hover */
+}
+
+.Lista-Itens a:hover {
+    color: #ffcccc; /* Muda a cor ao passar o mouse */
+}
+
+/* Seção com quadrados */
+#Lista-Quadrados {
+    display: flex; /* Adicionado para organizar os quadrados em linha */
+    justify-content: center; /* Centraliza os quadrados no contêiner */
+    flex-wrap: wrap; /* Permite que os quadrados quebrem para a próxima linha */
+    margin-top: 20px;
+}
+
+/* Estilos dos quadrados */
+#Lista-Quadrados div {
+    height: 70px;
+    width:  70px;
+    margin: 10px;
+    background-color: blue;
+    border-radius: 5px; /* Bordas arredondadas para estilo */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito de hover nos quadrados */
+#Lista-Quadrados div:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    background-color: #0044cc; /* Muda a cor ao passar o mouse */
+}
