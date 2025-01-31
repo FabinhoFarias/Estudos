@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+    <script src="relogio.js" defer></script>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0; 
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo principal */
+        body, main{
+            background-color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1{
+            line-height: 200%;
+            font-size: 48px;
+            color: #ff0000;
+            margin-top: calc(25dvh - 48px) ;
+        }
+        
+        .Container{
+            display: flex;
+            align-items: center;
+            flex-direction:column;
+            width:  50dvh;
+            height: 50dvh;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="Container">
+            <h1 id="hora">Iniciando...</h1>
+        </div>
+    </main>
+    
+</body>
+</html>
