@@ -1,0 +1,84 @@
+/* Reset básico */
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo principal */
+body, main, .flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    line-height: 200%;
+    font-size: 48px;
+    color: #3f0000;
+    margin-top: calc(10dvh - 48px) ;
+}
+
+.Container{
+    background-color: #ff0000;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    width:  50dvh;
+    height: 50dvh;
+}
+
+input[type="text"] {
+    /* Estilização básica */
+    background-color: #ffffff; /* Fundo branco */
+    color: rgb(0, 0, 0); /* Texto preto */
+    font-size: 15px; /* Tamanho da fonte */
+    text-align: left;
+    padding: 2px 10vw; /* Espaçamento interno */
+    border: 1px solid #000000; 
+    border-radius: 5px; /* Cantos arredondados */
+    
+}
+button[type="submit"] {
+    /* Estilização básica */
+    background-color: #ffffff; /* Fundo branco */
+    color: rgb(0, 0, 0); /* Texto preto */
+    font-size: 18px; /* Tamanho da fonte */
+    padding: 2px 50px; /* Espaçamento interno */
+    border: 1px solid #000000; /* Borda azul */
+    border-radius: 10px; /* Cantos arredondados */
+    cursor: pointer; /* Indica clicabilidade */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    transition: background-color 0.3s, transform 0.2s; /* Efeitos suaves */
+    
+    /* Sombra para destaque */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito ao passar o mouse */
+button[type="submit"]:hover {
+    background-color: #00ff0de1; /* Azul vibrante */
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Efeito ao clicar */
+button[type="submit"]:active {
+    background-color: #2980b9; /* Azul escuro */
+    transform: scale(0.98);
+}
+
+/* Quando o botão estiver desativado */
+button[type="submit"]:disabled {
+    background-color: #ffffff; /* Cinza */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Simulando um placeholder dentro do botão */
+button[type="submit"]:empty::before {
+    content: "+"; /* Texto do placeholder */
+    color: rgb(0, 0, 0); /* Cinza claro para simular placeholder */
+    font-weight: normal;
+}
