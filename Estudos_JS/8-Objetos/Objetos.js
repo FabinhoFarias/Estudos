@@ -133,7 +133,160 @@ for (let chave in pessoa) {
   
 // 8.2 - Garbage Colletion -------------------------------------------------------------------------------------------------------------------------------------------------
 
+/**
+ * 8.2 - Garbage Collection (Coleta de Lixo)
+ * --------------------------------------------------------------------------
+ * O JavaScript possui um mecanismo automático de gerenciamento de memória chamado
+ * "Garbage Collection" (Coletor de Lixo). Esse processo é responsável por liberar
+ * a memória ocupada por valores que não estão mais sendo utilizados pelo programa.
+ * 
+ * O principal algoritmo usado pelo mecanismo de GC no JavaScript é o "Mark-and-Sweep".
+ * Vamos entender como ele funciona e como podemos escrever um código eficiente para
+ * evitar problemas de consumo excessivo de memória.
+ */
+
+// -------------------- Exemplo de Alocação de Memória --------------------
+function criarObjeto() {
+    let obj = { nome: "JavaScript", versao: "ES6" };
+    return obj; // O objeto ainda está acessível ao final da função
+}
+
+let linguagem = criarObjeto(); // 'linguagem' mantém a referência ao objeto
+
+// O objeto ainda está na memória porque a variável 'linguagem' tem uma referência a ele
+console.log(linguagem);
+
+// -------------------- Como a Garbage Collection Atua --------------------
+// Se atribuirmos 'null' à variável, a referência ao objeto será perdida
+linguagem = null;
+
+// Agora, o coletor de lixo pode identificar que o objeto não é mais acessível
+// e removê-lo da memória automaticamente em um momento oportuno.
+
+/**
+ * O Algoritmo Mark-and-Sweep (Marcação e Varredura)
+ * --------------------------------------------------------------------------
+ * 1. O GC percorre os objetos acessíveis no código e os "marca" como ainda utilizados.
+ * 2. Objetos que não são mais referenciados são considerados "inacessíveis".
+ * 3. O GC remove da memória os objetos inacessíveis.
+ */
+
+// -------------------- Problema: Memory Leak (Vazamento de Memória) --------------------
+// Um memory leak ocorre quando objetos que não deveriam estar mais na memória continuam sendo 
+// referenciados, impedindo sua remoção.
+
+let cache = {};
+
+function adicionarAoCache(chave, valor) {
+    cache[chave] = valor; // O objeto fica preso na memória se não for removido
+}
+
+adicionarAoCache("config", { tema: "escuro", fonte: "Arial" });
+
+// O cache pode crescer indefinidamente se não for gerenciado corretamente
+console.log(cache);
+
+// Para evitar vazamentos, remova referências desnecessárias:
+delete cache["config"]; // Remove a referência do objeto no cache
+
+// Outra forma é atribuir 'null' ou 'undefined' à variável
+cache = null; // Permite que todo o cache seja coletado pelo GC
+
+// -------------------- Boas Práticas --------------------
+// 1. Evite variáveis globais desnecessárias.
+// 2. Sempre remova referências a objetos que não são mais usados.
+// 3. Use estruturas de dados apropriadas, como WeakMap e WeakSet,
+//    que permitem que objetos sejam automaticamente removidos pelo GC.
+
+// Exemplo de WeakMap:
+let weakCache = new WeakMap();
+let objetoChave = {};
+weakCache.set(objetoChave, "dados temporários");
+
+// Quando 'objetoChave' for removido, os dados no WeakMap também serão automaticamente coletados pelo GC.
+objetoChave = null;
+
+// O WeakMap não mantém referência forte, então os dados podem ser liberados automaticamente.
+
+/**
+ * Conclusão
+ * --------------------------------------------------------------------------
+ * O Garbage Collection em JavaScript é um processo automático que gerencia a memória,
+ * mas é importante escrever código eficiente para evitar vazamentos de memória.
+ * Sempre que possível, libere referências a objetos que não são mais necessários.
+ */
+
 // 8.3 - This -------------------------------------------------------------------------------------------------------------------------------------------------
+
+// 8.3 - This -------------------------------------------------------------------------------------------------------------------------------------------------
+
+// O `this` em JavaScript é uma palavra-chave especial que faz referência ao contexto de execução atual.
+// O valor de `this` pode variar dependendo de como a função é chamada.
+
+// 1. `this` dentro de um objeto (método)
+const obj = {
+    name: 'Objeto',
+    showThis: function () {
+        console.log(this); // Referencia o próprio objeto
+    }
+};
+obj.showThis();
+
+// 2. `this` dentro de uma classe
+class Animal {
+    constructor(type) {
+        this.type = type;
+    }
+    showType() {
+        console.log(`Eu sou um ${this.type}`);
+    }
+}
+const dog = new Animal('cachorro');
+dog.showType();
+
+// 3. `this` com `call`
+function saudacao(mensagem) {
+    console.log(`${mensagem}, meu nome é ${this.nome}`);
+}
+
+const pessoa1 = { nome: "Lucas" };
+const pessoa2 = { nome: "Mariana" };
+
+// Chamando a função com `call`, alterando o `this`
+saudacao.call(pessoa1, "Olá");  // Saída: Olá, meu nome é Lucas
+saudacao.call(pessoa2, "Oi");   // Saída: Oi, meu nome é Mariana
+
+// 4. `call` para reutilizar métodos de um objeto em outro
+const carro = {
+    marca: "Toyota",
+    mostrarMarca: function() {
+        console.log(`Marca: ${this.marca}`);
+    }
+};
+
+const moto = { marca: "Honda" };
+
+// Usando `call` para reutilizar o método de `carro` no objeto `moto`
+carro.mostrarMarca.call(moto); // Saída: Marca: Honda
+
+// 5. `call` sem passar um objeto (modo não estrito)
+function mostrar() {
+    console.log(this);
+}
+mostrar.call(); // No navegador: `window` | No Node.js: `global`
+
+// 6. `call` com `strict mode`
+"use strict";
+function teste() {
+    console.log(this);
+}
+teste.call(); // Saída: undefined (porque o modo estrito impede `this` de ser global)
+
+// Conclusão:
+// - `call` chama a função imediatamente e define o `this`.
+// - O primeiro argumento de `call` define o valor de `this`.
+// - Os argumentos seguintes são passados normalmente para a função.
+// - Se `call` for usado sem um objeto, `this` será `window` (modo normal) ou `undefined` (modo estrito).
 
 // 8.4 - Construtores -------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -142,3 +295,4 @@ for (let chave in pessoa) {
 // 8.6 - Operador Dates -------------------------------------------------------------------------------------------------------------------------------------------------
 
 // 8.7 - Operador Math -------------------------------------------------------------------------------------------------------------------------------------------------
+
